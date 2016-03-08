@@ -1,0 +1,3 @@
+Login & Signup Module need to do (If we have enough time):
+1. javascript to check password and confirm password.
+2. set placeholder background to red if ERR = dup-username or dup-email
