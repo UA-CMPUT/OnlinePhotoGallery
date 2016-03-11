@@ -32,9 +32,10 @@ if( isset( $_POST['signup-button'])){
     oci_free_statement($get_username_stid);
     // check email duplication
     $get_email_sql = "SELECT email FROM persons";
-    $get_email_stid = oci_parse($conn, $get_username_sql);
-    $email_result = oci_execute($get_username_stid);
+    $get_email_stid = oci_parse($conn, $get_email_sql);
+    $email_result = oci_execute($get_email_stid);
     if ( !$email_result ){
+        //echo "bad email check";
         header( "location:index.php?ERR=err" );
         oci_free_statement($get_email_stid);
         oci_close($conn);
@@ -43,7 +44,8 @@ if( isset( $_POST['signup-button'])){
     while ($one_email = oci_fetch_array($get_email_stid, OCI_ASSOC)){
         if ($one_email['EMAIL'] == $user_email){
             header("location: index.php?ERR=dup-email");
-            oci_free_statement($get_username_stid);
+            //echo "bad email";
+            oci_free_statement($get_email_stid);
             oci_close($conn);
             exit();
         }
@@ -59,10 +61,18 @@ if( isset( $_POST['signup-button'])){
     $insert_users_sql = "INSERT INTO users VALUES ('".$user_name."', '".$user_pswd."', '".$now_date."')";
     $insert_users_stid = oci_parse($conn, $insert_users_sql);
     $insert_users_result = oci_execute($insert_users_stid);
+//    if (!$insert_users_result){
+//        echo "insert users fail <br>";
+//    }
+
     // insert into table: persons
     $insert_persons_sql = "INSERT INTO persons VALUES ('".$user_name."', '".$user_first_name."', '".$user_last_name."', '".$user_address."', '".$user_email."', '".$user_phone."')";
     $insert_persons_stid = oci_parse($conn, $insert_persons_sql);
     $insert_persons_result = oci_execute($insert_persons_stid);
+//    if (!$insert_persons_result){
+//        echo "insert persons fail <br>";
+//    }
+
     if ( $insert_users_result && $insert_persons_result){
         oci_commit($conn);
         oci_free_statement($insert_persons_stid);
@@ -71,12 +81,19 @@ if( isset( $_POST['signup-button'])){
         session_start();
         $_SESSION['REG_DATE'] = $now_date;
         $_SESSION['USER_NAME'] = $user_name;
+        $_SESSION['FIRST_NAME'] = $user_first_name;
+        $_SESSION['LAST_NAME'] = $user_last_name;
+        $_SESSION['ADDRESS'] = $user_address;
+        $_SESSION['EMAIL'] = $user_email;
+        $_SESSION['PHONE'] = $user_phone;
+        //echo "insert all good <br>";
         header( "location:main_page.php" );
     } else {
         oci_rollback($conn);
         oci_free_statement($insert_persons_stid);
         oci_free_statement($insert_users_stid);
         oci_close($conn);
+        //echo "all rollback <br>";
         header("location: index.php?ERR=err");
     }
 }
