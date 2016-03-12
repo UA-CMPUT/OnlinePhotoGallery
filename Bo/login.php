@@ -25,9 +25,8 @@ if( isset( $_POST['login-button'] ) ){
             }
             $person_info = oci_fetch_array($get_person_stid, OCI_ASSOC);
 
+            /* start new session. */
             session_start();
-//            echo $user_info['PASSWORD'];
-//            echo $user_info['USER_NAME'];
             $_SESSION['REG_DATE'] = $user_info['DATE_REGISTERED'];
             $_SESSION['USER_NAME'] = $_POST['login-username'];
             $_SESSION['FIRST_NAME'] = $person_info['FIRST_NAME'];

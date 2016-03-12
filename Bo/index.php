@@ -8,10 +8,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="ref/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="ref/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="ref/assets/css/form-elements.css">
+        <link rel="stylesheet" href="ref/assets/css/style.css">
 
     </head>
 
@@ -154,13 +154,13 @@
         </footer>
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="ref/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="ref/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="ref/assets/js/jquery.backstretch.min.js"></script>
+        <script src="ref/assets/js/scripts.js"></script>
         
         <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
+            <script src="ref/assets/js/placeholder.js"></script>
         <![endif]-->
 
     </body>
