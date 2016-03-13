@@ -8,20 +8,18 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="ref/assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="ref/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="ref/assets/css/form-elements.css">
-        <link rel="stylesheet" href="ref/assets/css/style.css">
+        <link rel="stylesheet" href="ref/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="ref/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="ref/dist/css/form-elements.css">
+        <link rel="stylesheet" href="ref/dist/css/style.css">
 
     </head>
 
     <body>
-
         <!-- Top content -->
         <div class="top-content">
             <div class="inner-bg">
                 <div class="container">
-                	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Online Photo Gallery</strong></h1>
@@ -154,13 +152,13 @@
         </footer>
 
         <!-- Javascript -->
-        <script src="ref/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="ref/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="ref/assets/js/jquery.backstretch.min.js"></script>
-        <script src="ref/assets/js/scripts.js"></script>
-        
+        <script src="ref/dist/js/jquery-1.11.1.min.js"></script>
+        <script src="ref/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="ref/dist/js/jquery.backstretch.min.js"></script>
+        <script src="ref/dist/js/scripts.js"></script>
+
         <!--[if lt IE 10]>
-            <script src="ref/assets/js/placeholder.js"></script>
+        <script src="ref/dist/js/placeholder.js"></script>
         <![endif]-->
 
     </body>

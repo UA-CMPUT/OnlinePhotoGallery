@@ -39,7 +39,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>framework based on bootstrap</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="ref/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -209,9 +209,9 @@
     <div id="page-wrapper">
 <!--        <div id="content">-->
             <iframe id="content-ifm" src="http://en.wikipedia.org" width="100%" min-height=768px name="content-iframe"></iframe>
-<script type="text/javascript">
-    resizeIframe();
-</script>
+            <script type="text/javascript">
+                resizeIframe();
+            </script>
 
         <!--        </div>-->
 <!--        <div class="container-fluid">-->
