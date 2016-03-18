@@ -77,12 +77,11 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href=""><b>Online Photo Gallery</b></a>
-
         </div>
 
         <!-- Search Bar -->
         <ul class = "navbar-left">
-            <form class="navbar-form" role="search" action="search.php" target="content_iframe">
+            <form class="navbar-form" role="search" action="search.php" target="iframepage">
                 <div class="form-group">
                     <input type="text" id="" class="form-control has-search-icon" placeholder="Search Pictures" style="">
                 </div>
@@ -107,110 +106,44 @@
                 </ul>
             </li>
         </ul>
-
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.html" target="content_iframe"><i class="fa fa-image fa-fw"></i> Photos </a>
+                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i></i>  All Photos</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                        <a href="javascript:void(0)" ><i class="fa fa-upload"></i></i>  Upload Photos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="flot.html">Flot Charts</a>
+                                <a href="upload_file.php" target="iframepage"><i class="fa fa-image fa-file"></i>  Upload One File</a>
                             </li>
                             <li>
-                                <a href="morris.html">Morris.js Charts</a>
+                                <a href="upload_folder.php" target="iframepage"><i class="fa fa-image fa-folder"></i>  Upload Folder</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        <a href="groups.php" target="iframepage"><i class="fa fa-users"></i></i>  Groups</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        <a href="blank_test.php" target="iframepage"><i class="fa fa-globe"></i></i>  Advanced Search</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="panels-wells.html">Panels and Wells</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="icons.html"> Icons</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Grid</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li class="active">
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="active" href="blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="login.html">Login Page</a>
-                            </li>
-                        </ul>
+                        <a href="blank_test.php" target="iframepage"><i class="fa fa-bar-chart"></i></i>  Data Analysis</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.sidebar-collapse -->
         </div>
-        <!-- /.navbar-static-side -->
     </nav>
 
     <!-- Page Content -->
     <div id="page-wrapper">
-        <iframe src="index.php" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" id="iframecon" name="iframepage" onLoad="iFrameHeight();" ></iframe>
+        <iframe src="blank_test.php" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" id="iframecon" name="iframepage" onLoad="iFrameHeight();" ></iframe>
     </div>
 </div>
 
-<!-- /#wrapper -->
+<!-- make iframe full size -->
 <script type="text/javascript" language="javascript">
     function iFrameHeight() {
         var ifm= document.getElementById("iframecon");
