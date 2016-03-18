@@ -39,7 +39,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>framework based on bootstrap</title>
+    <title>Online Photo Gallery</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="ref/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -196,7 +196,6 @@
                                 <a href="login.html">Login Page</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
                     </li>
                 </ul>
             </div>
@@ -207,27 +206,21 @@
 
     <!-- Page Content -->
     <div id="page-wrapper">
-<!--        <div id="content">-->
-            <iframe id="content-ifm" src="http://en.wikipedia.org" width="100%" min-height=768px name="content-iframe"></iframe>
-            <script type="text/javascript">
-                resizeIframe();
-            </script>
-
-        <!--        </div>-->
-<!--        <div class="container-fluid">-->
-<!--            -->
-<!--            <div class="row">-->
-<!---->
-<!--                <!-- /.col-lg-12 -->
-<!--            </div>-->
-<!--            <!-- /.row -->
-<!--        </div>-->
-        <!-- /.container-fluid -->
+        <iframe src="index.php" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" id="iframecon" name="iframepage" onLoad="iFrameHeight();" ></iframe>
     </div>
-    <!-- /#page-wrapper -->
-
 </div>
+
 <!-- /#wrapper -->
+<script type="text/javascript" language="javascript">
+    function iFrameHeight() {
+        var ifm= document.getElementById("iframecon");
+        var subWeb = document.frames ? document.frames["iframepage"].document :
+            ifm.contentDocument;
+        if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+        }
+    }
+</script>
 
 <!-- jQuery -->
 <script src="ref/bower_components/jquery/dist/jquery.min.js"></script>
