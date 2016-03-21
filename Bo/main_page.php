@@ -22,11 +22,9 @@
 //
 //
 ///* check session */
-//session_start();
-//if ( !isset( $_SESSION['USER_NAME'] ) ) header( "location:index.php?ERR=session" );
+session_start();
+if ( !isset( $_SESSION['USER_NAME'] ) ) header( "location:index.php?ERR=session" );
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,10 +91,10 @@
             <!-- /.dropdown-user -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i>  <?php echo $_SESSION["USER_NAME"] ?>  <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Profile</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
@@ -110,27 +108,35 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i></i>  All Photos</a>
+                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" ><i class="fa fa-upload"></i></i>  Upload Photos<span class="fa arrow"></span></a>
+                        <a href="javascript:void(0)" ><i class="fa fa-upload"></i>  Upload Photos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="upload_file.php" target="iframepage"><i class="fa fa-image fa-file"></i>  Upload One File</a>
+                                <a href="upload_file.php" target="iframepage"><i class="fa fa-file"></i>  Upload One File</a>
                             </li>
                             <li>
-                                <a href="upload_folder.php" target="iframepage"><i class="fa fa-image fa-folder"></i>  Upload Folder</a>
+                                <a href="upload_folder.php" target="iframepage"><i class="fa fa-folder"></i>  Upload Folder</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="groups.php" target="iframepage"><i class="fa fa-users"></i></i>  Groups</a>
+                        <a href="javascript:void(0)"><i class="fa fa-users"></i>  Groups<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="groups.php" target="iframepage"><i class="fa fa-user"></i>  My Groups</a>
+                            </li>
+                            <li>
+                                <a href="blank_test.php.php" target="iframepage"><i class="fa fa-user-plus"></i>  Add New Group</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="blank_test.php" target="iframepage"><i class="fa fa-globe"></i></i>  Advanced Search</a>
+                        <a href="blank_test.php" target="iframepage"><i class="fa fa-globe"></i>  Advanced Search</a>
                     </li>
                     <li>
-                        <a href="blank_test.php" target="iframepage"><i class="fa fa-bar-chart"></i></i>  Data Analysis</a>
+                        <a href="blank_test.php" target="iframepage"><i class="fa fa-bar-chart"></i>  Data Analysis</a>
                     </li>
                 </ul>
             </div>

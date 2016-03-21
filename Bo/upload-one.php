@@ -15,6 +15,11 @@
     }
 
     include("connDB.php");
+    session_start();
+    if ( !isset ( $_SESSION['USER_NAME'] ) ) {
+        header( "location:index.php?ERR=session" );
+        exit();
+    };
     $conn = connect();
 
     $sql_date_format = "alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss'";
