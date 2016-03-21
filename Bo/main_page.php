@@ -1,29 +1,9 @@
 <?php
-//session_start();
-//echo "sign success <br>";
-//echo $_SESSION['REG_DATE'];
-//echo '<br>';
-//echo $_SESSION['USER_NAME'];
-//echo '<br>';
-//
-//echo $_SESSION['FIRST_NAME'];
-//echo '<br>';
-//
-//echo $_SESSION['LAST_NAME'];
-//echo '<br>';
-//
-//echo $_SESSION['ADDRESS'];
-//echo '<br>';
-//
-//echo $_SESSION['EMAIL'];
-//echo '<br>';
-//
-//echo $_SESSION['PHONE'];
-//
-//
-///* check session */
 session_start();
-if ( !isset( $_SESSION['USER_NAME'] ) ) header( "location:index.php?ERR=session" );
+if ( !isset( $_SESSION['USER_NAME'] ) ) {
+    header( "location:index.php?ERR=session" );
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +108,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) header( "location:index.php?ERR=session"
                                 <a href="groups.php" target="iframepage"><i class="fa fa-user"></i>  My Groups</a>
                             </li>
                             <li>
-                                <a href="blank_test.php.php" target="iframepage"><i class="fa fa-user-plus"></i>  Add New Group</a>
+                                <a href="blank_test.php" target="iframepage"><i class="fa fa-user-plus"></i>  Add New Group</a>
                             </li>
                         </ul>
                     </li>
@@ -156,7 +136,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) header( "location:index.php?ERR=session"
         var subWeb = document.frames ? document.frames["iframepage"].document :
             ifm.contentDocument;
         if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight;
+            ifm.height = subWeb.body.scrollHeight + 100;
         }
     }
 </script>

@@ -4,9 +4,9 @@
     session_start();
     if ( !isset ( $_SESSION['USER_NAME'] ) ) {
         header( "location:index.php?ERR=session" );
+        exit();
     };
     $user_name = $_SESSION['USER_NAME'];
-//    $user_name = "admin";
     $conn = connect();
     $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
     $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
@@ -48,9 +48,6 @@
             color: rgb(200, 50 ,50);
             font-size: 20px;
             font-weight: bold;
-        }
-        audio {
-            display: none;
         }
         .half {
             width: 70%;
@@ -109,7 +106,7 @@
         <input value="Upload" name="button" id="upload-button" type="submit" style='margin-bottom: 30px'/>
     </form>
 </fieldset>
-<!-- get audio duration -->
+
 <script type="text/javascript">
     function hideMessage() {
         var successShow = $("#success-show");

@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f914d920-d30b-4f17-8ac7-630d9ef67356" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/Icon&#13;" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/Icon&#13;" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/extras.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/spinning.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/Icon&#13;" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_extras.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_spinning.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/add-group.php" afterPath="$PROJECT_DIR$/Bo/add-group.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/groups.php" afterPath="$PROJECT_DIR$/Bo/groups.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/main_page.php" afterPath="$PROJECT_DIR$/Bo/main_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/Bo/ref/bower_components/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/upload-one.php" afterPath="$PROJECT_DIR$/Bo/upload-one.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/upload_file.php" afterPath="$PROJECT_DIR$/Bo/upload_file.php" />
     </list>
     <ignored path="OnlinePhotoGallery.iws" />
@@ -59,11 +30,9 @@
       <file leaf-file-name="main_page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="130" column="55" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
-              <folding>
-                <element signature="e#6#24#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="1870">
+              <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,7 +40,7 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1457939519000" expanded="true" signature="291:384" placeholder="SELECT user_... users" />
@@ -84,24 +53,24 @@
       <file leaf-file-name="upload_file.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/upload_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="32" column="21" selection-start-line="10" selection-start-column="4" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="1836">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1458540584000" expanded="true" signature="280:313" placeholder="SELECT senso... sensors" />
-                <marker date="1458540584000" expanded="true" signature="280:325" placeholder="SELECT group... sensors" />
-                <marker date="1458540584000" expanded="true" signature="280:337" placeholder="SELECT group... sensors" />
-                <marker date="1458540584000" expanded="true" signature="280:352" placeholder="SELECT group... sensors" />
-                <marker date="1458540584000" expanded="true" signature="280:353" placeholder="SELECT group... sensors" />
-                <marker date="1458540584000" expanded="true" signature="280:471" placeholder="SELECT group... sensors" />
-                <marker date="1458540584000" expanded="true" signature="368:423" placeholder="SELECT group... groups" />
-                <marker date="1458540584000" expanded="true" signature="368:431" placeholder="SELECT group... groups" />
-                <marker date="1458540584000" expanded="true" signature="1888:1901" placeholder="..." />
-                <marker date="1458540584000" expanded="true" signature="2033:2046" placeholder="..." />
-                <marker date="1458540584000" expanded="true" signature="3154:3237" placeholder="..." />
-                <marker date="1458540584000" expanded="true" signature="3908:4001" placeholder="..." />
-                <marker date="1458540584000" expanded="true" signature="4391:4464" placeholder="{...}" />
+                <marker date="1458548528000" expanded="true" signature="268:301" placeholder="SELECT senso... sensors" />
+                <marker date="1458548528000" expanded="true" signature="268:313" placeholder="SELECT group... sensors" />
+                <marker date="1458548528000" expanded="true" signature="268:325" placeholder="SELECT group... sensors" />
+                <marker date="1458548528000" expanded="true" signature="268:340" placeholder="SELECT group... sensors" />
+                <marker date="1458548528000" expanded="true" signature="268:341" placeholder="SELECT group... sensors" />
+                <marker date="1458548528000" expanded="true" signature="268:459" placeholder="SELECT group... sensors" />
+                <marker date="1458548528000" expanded="true" signature="356:411" placeholder="SELECT group... groups" />
+                <marker date="1458548528000" expanded="true" signature="356:419" placeholder="SELECT group... groups" />
+                <marker date="1458548528000" expanded="true" signature="1823:1836" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="1968:1981" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="3089:3172" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="3843:3936" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="4299:4372" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -110,26 +79,9 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
+            <state relative-caret-position="2295">
               <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upload-one.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
-              <folding>
-                <marker date="1458542697000" expanded="true" signature="1145:1172" placeholder="select photo... images" />
-                <marker date="1458542697000" expanded="true" signature="2324:2528" placeholder="INSERT INTO images... " />
-                <marker date="1458542697000" expanded="true" signature="2324:2538" placeholder="INSERT INTO images... " />
-                <marker date="1458542697000" expanded="true" signature="2324:2578" placeholder="INSERT INTO images... " />
-                <marker date="1458542697000" expanded="true" signature="2324:2662" placeholder="INSERT INTO images... " />
-                <marker date="1458542697000" expanded="true" signature="2324:2664" placeholder="INSERT INTO images... " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -137,13 +89,14 @@
       <file leaf-file-name="groups.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" selection-start-line="3" selection-start-column="4" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="1496">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding>
-                <marker date="1458542122000" expanded="true" signature="252:324" placeholder="SELECT group... groups" />
-                <marker date="1458542122000" expanded="true" signature="1562:1575" placeholder="..." />
-                <marker date="1458542122000" expanded="true" signature="1676:1689" placeholder="..." />
-                <marker date="1458542122000" expanded="true" signature="1811:1824" placeholder="..." />
+                <element signature="n#style#0;n#div#0;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1458548528000" expanded="true" signature="252:324" placeholder="SELECT group... groups" />
+                <marker date="1458548528000" expanded="true" signature="1580:1593" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="1694:1707" placeholder="..." />
+                <marker date="1458548528000" expanded="true" signature="1829:1842" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -152,23 +105,24 @@
       <file leaf-file-name="add-group.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bo/add-group.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="73" column="2" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="2" />
+            <state relative-caret-position="1003">
+              <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
               <folding>
-                <marker date="1458542976000" expanded="true" signature="564:636" placeholder="SELECT group... groups" />
-                <marker date="1458542976000" expanded="true" signature="652:715" placeholder="SELECT group... groups" />
-                <marker date="1458542976000" expanded="true" signature="1922:1988" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:1997" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2012" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2013" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2015" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2031" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2033" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2048" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2049" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2051" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2066" placeholder="INSERT INTO groups... " />
-                <marker date="1458542976000" expanded="true" signature="1922:2067" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="564:636" placeholder="SELECT group... groups" />
+                <marker date="1458549177000" expanded="true" signature="652:715" placeholder="SELECT group... groups" />
+                <marker date="1458549177000" expanded="true" signature="733:760" placeholder="SELECT group... groups" />
+                <marker date="1458549177000" expanded="true" signature="2259:2325" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2334" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2349" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2350" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2352" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2368" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2370" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2385" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2386" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2388" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2403" placeholder="INSERT INTO groups... " />
+                <marker date="1458549177000" expanded="true" signature="2259:2404" placeholder="INSERT INTO groups... " />
               </folding>
             </state>
           </provider>
@@ -188,10 +142,10 @@
         <option value="$PROJECT_DIR$/Bo/upload_folder.php" />
         <option value="$PROJECT_DIR$/Bo/all_photos.php" />
         <option value="$PROJECT_DIR$/Bo/add_group.php" />
-        <option value="$PROJECT_DIR$/Bo/upload_file.php" />
-        <option value="$PROJECT_DIR$/Bo/groups.php" />
-        <option value="$PROJECT_DIR$/Bo/main_page.php" />
         <option value="$PROJECT_DIR$/Bo/upload-one.php" />
+        <option value="$PROJECT_DIR$/Bo/main_page.php" />
+        <option value="$PROJECT_DIR$/Bo/groups.php" />
+        <option value="$PROJECT_DIR$/Bo/upload_file.php" />
         <option value="$PROJECT_DIR$/Bo/add-group.php" />
       </list>
     </option>
@@ -330,12 +284,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1457942344208</updated>
-      <workItem from="1458452497732" duration="25383000" />
+      <workItem from="1458452497732" duration="27794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25383000" />
+    <option name="totallyTimeSpent" value="27794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -382,9 +336,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="132" column="47" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
-          <folding>
-            <element signature="e#6#24#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -395,19 +347,19 @@
           <folding>
             <element signature="n#style#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1458540584000" expanded="true" signature="280:313" placeholder="SELECT senso... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:325" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:337" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:352" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:353" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:471" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="368:423" placeholder="SELECT group... groups" />
-            <marker date="1458540584000" expanded="true" signature="368:431" placeholder="SELECT group... groups" />
-            <marker date="1458540584000" expanded="true" signature="1888:1901" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="2033:2046" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="3154:3237" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="3908:4001" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="4391:4464" placeholder="{...}" />
+            <marker date="1458548528000" expanded="true" signature="268:301" placeholder="SELECT senso... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:313" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:325" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:340" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:341" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:459" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="356:411" placeholder="SELECT group... groups" />
+            <marker date="1458548528000" expanded="true" signature="356:419" placeholder="SELECT group... groups" />
+            <marker date="1458548528000" expanded="true" signature="1823:1836" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="1968:1981" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="3089:3172" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="3843:3936" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="4299:4372" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -431,9 +383,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#24#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -472,49 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1457939519000" expanded="true" signature="291:384" placeholder="SELECT user_... users" />
-            <marker date="1457939519000" expanded="true" signature="796:852" placeholder="SELECT * FRO... persons" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/upload_file.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="21" selection-start-line="10" selection-start-column="4" selection-end-line="32" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1458540584000" expanded="true" signature="280:313" placeholder="SELECT senso... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:325" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:337" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:352" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:353" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="280:471" placeholder="SELECT group... sensors" />
-            <marker date="1458540584000" expanded="true" signature="368:423" placeholder="SELECT group... groups" />
-            <marker date="1458540584000" expanded="true" signature="368:431" placeholder="SELECT group... groups" />
-            <marker date="1458540584000" expanded="true" signature="1888:1901" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="2033:2046" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="3154:3237" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="3908:4001" placeholder="..." />
-            <marker date="1458540584000" expanded="true" signature="4391:4464" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/add_group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -523,32 +430,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="130" column="55" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
-          <folding>
-            <element signature="e#6#24#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/groups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="3" selection-start-column="4" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <marker date="1458542122000" expanded="true" signature="252:324" placeholder="SELECT group... groups" />
-            <marker date="1458542122000" expanded="true" signature="1562:1575" placeholder="..." />
-            <marker date="1458542122000" expanded="true" signature="1676:1689" placeholder="..." />
-            <marker date="1458542122000" expanded="true" signature="1811:1824" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="340">
           <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
           <folding>
             <marker date="1458542697000" expanded="true" signature="1145:1172" placeholder="select photo... images" />
@@ -561,25 +445,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1457939519000" expanded="true" signature="291:384" placeholder="SELECT user_... users" />
+            <marker date="1457939519000" expanded="true" signature="796:852" placeholder="SELECT * FRO... persons" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" column="52" selection-start-line="110" selection-start-column="52" selection-end-line="110" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/upload_file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1458548528000" expanded="true" signature="268:301" placeholder="SELECT senso... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:313" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:325" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:340" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:341" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="268:459" placeholder="SELECT group... sensors" />
+            <marker date="1458548528000" expanded="true" signature="356:411" placeholder="SELECT group... groups" />
+            <marker date="1458548528000" expanded="true" signature="356:419" placeholder="SELECT group... groups" />
+            <marker date="1458548528000" expanded="true" signature="1823:1836" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="1968:1981" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="3089:3172" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="3843:3936" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="4299:4372" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#fieldset#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1458548528000" expanded="true" signature="252:324" placeholder="SELECT group... groups" />
+            <marker date="1458548528000" expanded="true" signature="1580:1593" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="1694:1707" placeholder="..." />
+            <marker date="1458548528000" expanded="true" signature="1829:1842" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/add-group.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="2" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="2" />
+        <state relative-caret-position="1003">
+          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
           <folding>
-            <marker date="1458542976000" expanded="true" signature="564:636" placeholder="SELECT group... groups" />
-            <marker date="1458542976000" expanded="true" signature="652:715" placeholder="SELECT group... groups" />
-            <marker date="1458542976000" expanded="true" signature="1922:1988" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:1997" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2012" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2013" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2015" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2031" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2033" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2048" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2049" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2051" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2066" placeholder="INSERT INTO groups... " />
-            <marker date="1458542976000" expanded="true" signature="1922:2067" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="564:636" placeholder="SELECT group... groups" />
+            <marker date="1458549177000" expanded="true" signature="652:715" placeholder="SELECT group... groups" />
+            <marker date="1458549177000" expanded="true" signature="733:760" placeholder="SELECT group... groups" />
+            <marker date="1458549177000" expanded="true" signature="2259:2325" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2334" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2349" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2350" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2352" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2368" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2370" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2385" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2386" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2388" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2403" placeholder="INSERT INTO groups... " />
+            <marker date="1458549177000" expanded="true" signature="2259:2404" placeholder="INSERT INTO groups... " />
           </folding>
         </state>
       </provider>

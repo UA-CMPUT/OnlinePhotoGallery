@@ -15,14 +15,18 @@
     $new_group = $_POST["group-input"];
     $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
     $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
+    $sql_id = "SELECT group_id FROM groups";
 
     $stid = oci_parse( $conn, $sql );
     $stid2 = oci_parse( $conn, $sql2);
+    $stid_id = oci_parse($conn, $sql_id);
     $result = oci_execute( $stid );
     $result2 = oci_execute( $stid2 );
-    if (!($result&&$result2)){
+    $result_id = oci_execute( $stid_id);
+    if (!($result&&$result2&&$result_id)){
         oci_free_statement($stid2);
         oci_free_statement($stid);
+        oci_free_statement($stid_id);
         header( "location:groups.php?ACK=-1" );
         exit();
     }
@@ -45,10 +49,16 @@
     }
     oci_free_statement($stid);
     oci_free_statement($stid2);
+
     /* find valid group id */
     $id_guess = 1;
-    foreach ($all_group_info as $group){
-        if ($id_guess == $group[0]){
+    $all_id = array();
+    while($group_id = oci_fetch_array($stid_id, OCI_ASSOC)){
+        array_push($all_id, $group_id["GROUP_ID"]);
+    }
+    oci_free_statement($stid_id);
+    while(true){
+        if (in_array($id_guess, $all_id)){
             $id_guess++;
         }else{
             break;
