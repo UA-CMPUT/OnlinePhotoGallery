@@ -6,14 +6,17 @@
 				<form action="dataAnalysis.php" method="post">
 					<fieldset>
 						user:	<input type="text" name="user_id" placeholder="Please enter user id"> <br /> <br />
+						key Words:	<input type="text" name="key words" placeholder="Please enter key words"> <br /> <br />
 						From:	<input type="text" name="start_date" placeholder="Please enter start date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />			
 						To:	<input type="text" name="End_date" placeholder="Please enter end date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />
 						<button type="reset">Reset</button>
 						<input type="submit" name="upload_analysis" value="Submit">
 						
-						<button type = "submit" name = "weekly" value = "weekly">Weekly</button>
-						<button type = "submit" name = "monthly" value = "monthly">Monthly</button>
-						<button type = "submit" name = "yearly" value = "yearly">Yearly</button>
+						<input  type = "checkbox" name = "showUsers" value = "Users">Users					
+						<input  type = "checkbox" name = "showSubjects" value = "subjects">subjects
+						<input  type = "checkbox" name = "showWeekly" value = "weekly">Weekly
+					   <input type = "checkbox" name = "showMonthly" value = "monthly">Monthly
+						<input type = "checkbox" name = "showYearly" value = "yearly">Yearly
 						
 					</fieldset>
 		
