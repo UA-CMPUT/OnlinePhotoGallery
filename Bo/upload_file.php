@@ -41,11 +41,11 @@
             text-align: center;
         }
         fieldset {
-            border: 3px solid rgb(255, 200, 150);
+            border: 3px solid rgb(53, 43, 255);
             margin: 30px;
         }
         legend {
-            color: rgb(200, 50 ,50);
+            color: rgb(243, 3, 116);
             font-size: 20px;
             font-weight: bold;
         }

@@ -102,15 +102,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><i class="fa fa-users"></i>  Groups<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="groups.php" target="iframepage"><i class="fa fa-user"></i>  My Groups</a>
-                            </li>
-                            <li>
-                                <a href="blank_test.php" target="iframepage"><i class="fa fa-user-plus"></i>  Add New Group</a>
-                            </li>
-                        </ul>
+                        <a href="groups.php" target="iframepage"><i class="fa fa-users"></i>  Groups</a>
                     </li>
                     <li>
                         <a href="blank_test.php" target="iframepage"><i class="fa fa-globe"></i>  Advanced Search</a>

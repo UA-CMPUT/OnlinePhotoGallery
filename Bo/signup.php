@@ -92,6 +92,7 @@ if( isset( $_POST['signup-button'])){
         oci_free_statement($insert_persons_stid);
         oci_free_statement($insert_users_stid);
         oci_close($conn);
+//        echo 4;
         header("location: index.php?ERR=err");
     }
 }

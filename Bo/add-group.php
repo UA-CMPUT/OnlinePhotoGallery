@@ -13,6 +13,7 @@
     oci_free_statement($stid_date_format);
     /* check group name exist */
     $new_group = $_POST["group-input"];
+    $user_name = $_SESSION["USER_NAME"];
     $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
     $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
     $sql_id = "SELECT group_id FROM groups";
@@ -32,6 +33,7 @@
     }
     $all_group_info = array();
     while ($group = oci_fetch_row($stid2)){
+        echo $group[1]."<br>";
         if ($new_group == $group[1]){
             header( "location:groups.php?ACK=-2" );
             exit();
@@ -40,6 +42,9 @@
         }
     }
     while ($group = oci_fetch_row($stid)){
+        echo "this this <br>";
+        echo $group[1]."<br>";
+
         if ($new_group == $group[1]){
             header( "location:groups.php?ACK=-2" );
             exit();
@@ -68,17 +73,24 @@
     echo $user_name;
     $now_date = date("d/m/Y H:i:s");
     $add_sql = "INSERT INTO groups (group_id, user_name, group_name, date_created) VALUES('".$id_guess."', '".$user_name."', '".$new_group."', '".$now_date."' )";
+//    $add_tolist_sql = "INSERT INTO group_lists (group_id, friend_id, date_added, notice) VALUES('".$id_guess."', null, '".$now_date."', '".$_POST["notice"]."' )";
     $add_stid = oci_parse($conn, $add_sql);
+//    $add_tolist_stid = oci_parse($conn, $add_tolist_sql);
     $add_result = oci_execute($add_stid);
+//    $add_tolist_result = oci_execute($add_tolist_stid);
     if (!$add_result){
         oci_rollback($conn);
+//        oci_free_statement($add_tolist_stid);
         oci_free_statement($add_stid);
         oci_close($conn);
+//        echo 11;
         header( "location:groups.php?ACK=-1" );
     }else{
         oci_commit($conn);
+//        oci_free_statement($add_tolist_stid);
         oci_free_statement($add_stid);
         oci_close($conn);
+//        echo 22;
         header( "location:groups.php?ACK=1" );
     }
 ?>
