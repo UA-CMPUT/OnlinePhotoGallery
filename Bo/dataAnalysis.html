@@ -1,0 +1,24 @@
+<html>
+	<Body>
+		<h1>Data Analysis</h1>
+		<div id="dataAnalysis_button"> Analysis Data </div>
+		<div id="data_analysis_panel">
+				<form action="dataAnalysis.php" method="post">
+					<fieldset>
+						user:	<input type="text" name="user_id" placeholder="Please enter user id"> <br /> <br />
+						key Words:	<input type="text" name="key words" placeholder="Please enter key words"> <br /> <br />
+						From:	<input type="text" name="start_date" placeholder="Please enter start date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />			
+						To:	<input type="text" name="End_date" placeholder="Please enter end date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />
+						<button type="reset">Reset</button>
+						<input type="submit" name="upload_analysis" value="Submit">
+						
+						<input  type = "checkbox" name = "showUsers" value = "Users">Users					
+						<input  type = "checkbox" name = "showSubjects" value = "subjects">subjects
+						<input  type = "checkbox" name = "showWeekly" value = "weekly">Weekly
+					   <input type = "checkbox" name = "showMonthly" value = "monthly">Monthly
+						<input type = "checkbox" name = "showYearly" value = "yearly">Yearly
+						
+					</fieldset>
+		
+		
+		</div>
