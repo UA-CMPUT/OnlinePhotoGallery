@@ -62,12 +62,10 @@
     <form name="upload-files" method="post" action="upload-one.php" enctype="multipart/form-data">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <?php
-
-
         if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Successful uploading. Please upload another file.</div>" ;
         elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot your upload photo. Please try again.</div>" ;
         ?>
-        <div class='half' style="..."> <!-- style='margin-top: 30px; height: 100px' -->
+        <div class='half' style="margin-top: 20px"> <!-- style='margin-top: 30px; height: 100px' -->
             <strong>1. Select Upload File</strong><br>
             <input name="file" type="file" id="upload-file" this.style.backgroundColor='rgb(178,234,255)' style='width: 80%; border: 1px dotted grey'><br>
         </div>

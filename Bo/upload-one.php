@@ -78,19 +78,38 @@
     if (!$blob2->save($object)) {
         oci_rollback($conn);
         $blob2->free();
+        oci_free_statement($result);
+        unlink($target_file);
+        unlink($resized_file);
+        oci_close($conn);
         header("location: upload_file.php?ACK=-1");
         exit();
     }
     if (!$blob1->save($thumb_img)) {
         oci_rollback($conn);
         $blob1->free();
+        oci_free_statement($result);
+        unlink($target_file);
+        unlink($resized_file);
+        oci_close($conn);
         header("location: upload_file.php?ACK=-1");
         exit();
     }
+    $sql_image_count = "INSERT INTO images_viewed (photo_id, view_count) VALUES ('".$id_guess."', 0)";
+    $stid_image_count = oci_parse($conn, $sql_image_count);
+    $result_image_count = oci_execute($stid_image_count);
+    if (! $result_image_count){
+        oci_rollback($conn);
+        oci_free_statement($stid_image_count);
+        oci_close($conn);
+        header("location: upload_file.php?ACK=-1");
+        exit();
+    }
+
     oci_free_statement($result);
+    oci_free_statement($stid_image_count);
     unlink($target_file);
     unlink($resized_file);
-
     oci_commit($conn);
     oci_close($conn);
     header( "location: upload_file.php?ACK=1");
