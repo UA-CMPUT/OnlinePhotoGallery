@@ -128,7 +128,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
         var subWeb = document.frames ? document.frames["iframepage"].document :
             ifm.contentDocument;
         if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight + 100;
+            ifm.height = subWeb.body.scrollHeight;
         }
     }
 </script>

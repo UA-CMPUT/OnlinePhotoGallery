@@ -122,7 +122,7 @@
         <div class="allfull" id='t2' style='...'>
             <form>
                 <select name='group-name' onchange="showUser(this.value)">
-                    <option value="-1">None</option>
+                    <option value="-1" selected>None</option>
                     <?php
                     foreach($all_group_info as $info) {
                         echo "<option value='" . $info[0] . "'>" . $info[1]."</option>";
@@ -130,7 +130,8 @@
                     ?>
                 </select>
             </form>
-            <div class="out" id="txtHint"></div>
+            <div class="out" id="txtHint">
+            </div>
         </div>
     </div>
 </fieldset>
