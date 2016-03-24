@@ -71,11 +71,18 @@ if( isset( $_POST['signup-button'])){
     $insert_persons_stid = oci_parse($conn, $insert_persons_sql);
     $insert_persons_result = oci_execute($insert_persons_stid);
 
+    /* insert into public group list */
+    $insert_public_sql = "INSERT INTO group_lists VALUES (1, '".$user_name."', '".$now_date."', 'system added' )";
+    $insert_public_stid = oci_parse($conn, $insert_public_sql);
+    $insert_public_result = oci_execute($insert_public_stid);
+
+
     /* all insertion success, header to main_page */
-    if ( $insert_users_result && $insert_persons_result){
+    if ( $insert_users_result && $insert_persons_result && $insert_public_result){
         oci_commit($conn);
         oci_free_statement($insert_persons_stid);
         oci_free_statement($insert_users_stid);
+        oci_free_statement($insert_public_stid);
         oci_close($conn);
         session_start();
         $_SESSION['REG_DATE'] = $now_date;
@@ -91,6 +98,7 @@ if( isset( $_POST['signup-button'])){
         oci_rollback($conn);
         oci_free_statement($insert_persons_stid);
         oci_free_statement($insert_users_stid);
+        oci_free_statement($insert_public_stid);
         oci_close($conn);
 //        echo 4;
         header("location: index.php?ERR=err");

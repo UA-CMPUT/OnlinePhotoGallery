@@ -1,5 +1,4 @@
 <?php
-
     function img_resize($target, $newcopy, $w, $h) {
         list($w_orig, $h_orig) = getimagesize($target);
         $scale_ratio = $w_orig / $h_orig;
@@ -21,18 +20,15 @@
         exit();
     };
     $conn = connect();
-
     $sql_date_format = "alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss'";
     $stid_date_format = oci_parse( $conn, $sql_date_format );
     $result_date_format = oci_execute( $stid_date_format );
     oci_free_statement($stid_date_format);
-
     $object = file_get_contents($_FILES['file']['tmp_name']);
     $now_date = $_POST['date-input'];
     if ($now_date ==''){
         $now_date = date("d/m/Y H:i:s");
     }
-
     $sql_id = "select photo_id from images";
     $id_stid = oci_parse($conn, $sql_id);
     $id_result = oci_execute($id_stid);
@@ -68,7 +64,6 @@
     $description = $_POST['description'];
     $place = $_POST['place'];
     $sql = "INSERT INTO images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) VALUES('" . $id_guess . "', '" . $owner_name . "', '" . $permitted_id . "', '" . $subject ."', '". $place ."', '". $now_date."', '". $description."', empty_blob(), empty_blob() ) RETURNING thumbnail, photo INTO :thumb_img, :object";
-
     $result = oci_parse($conn, $sql);
     $blob1 = oci_new_descriptor($conn, OCI_D_LOB);
     oci_bind_by_name($result, ":thumb_img", $blob1, -1, OCI_B_BLOB);
@@ -78,36 +73,15 @@
     if (!$blob2->save($object)) {
         oci_rollback($conn);
         $blob2->free();
-//        oci_free_statement($result);
-//        unlink($target_file);
-//        unlink($resized_file);
-//        oci_close($conn);
         header("location: upload_file.php?ACK=-1");
-//        exit();
     }
     if (!$blob1->save($thumb_img)) {
         oci_rollback($conn);
         $blob1->free();
         oci_free_statement($result);
-//        unlink($target_file);
-//        unlink($resized_file);
-//        oci_close($conn);
         header("location: upload_file.php?ACK=-1");
-//        exit();
     }
-//    $sql_image_count = "INSERT INTO images_viewed (photo_id, view_count) VALUES ('".$id_guess."', 0)";
-//    $stid_image_count = oci_parse($conn, $sql_image_count);
-//    $result_image_count = oci_execute($stid_image_count);
-//    if (! $result_image_count){
-//        oci_rollback($conn);
-//        oci_free_statement($stid_image_count);
-//        oci_close($conn);
-//        header("location: upload_file.php?ACK=-1");
-//        exit();
-//    }
-
     oci_free_statement($result);
-//    oci_free_statement($stid_image_count);
     unlink($target_file);
     unlink($resized_file);
     oci_commit($conn);
