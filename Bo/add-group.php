@@ -73,24 +73,23 @@
     echo $user_name;
     $now_date = date("d/m/Y H:i:s");
     $add_sql = "INSERT INTO groups (group_id, user_name, group_name, date_created) VALUES('".$id_guess."', '".$user_name."', '".$new_group."', '".$now_date."' )";
-//    $add_tolist_sql = "INSERT INTO group_lists (group_id, friend_id, date_added, notice) VALUES('".$id_guess."', null, '".$now_date."', '".$_POST["notice"]."' )";
     $add_stid = oci_parse($conn, $add_sql);
-//    $add_tolist_stid = oci_parse($conn, $add_tolist_sql);
     $add_result = oci_execute($add_stid);
-//    $add_tolist_result = oci_execute($add_tolist_stid);
-    if (!$add_result){
+    /* add admin to each group */
+    $add_admin_sql = "INSERT INTO group_lists ('".$id_guess."', 'admin', '".$now_date."', 'system added')";
+    $add_admin_stid = oci_parse($conn, $add_admin_sql);
+    $add_admin_result = oci_execute($add_admin_stid);
+    if (!($add_result && $add_admin_result)){
         oci_rollback($conn);
-//        oci_free_statement($add_tolist_stid);
         oci_free_statement($add_stid);
+        oci_free_statement($add_admin_stid);
         oci_close($conn);
-//        echo 11;
         header( "location:groups.php?ACK=-1" );
     }else{
         oci_commit($conn);
-//        oci_free_statement($add_tolist_stid);
         oci_free_statement($add_stid);
+        oci_free_statement($add_admin_stid);
         oci_close($conn);
-//        echo 22;
         header( "location:groups.php?ACK=1" );
     }
 ?>

@@ -13,7 +13,7 @@
         exit();
     }
     $sql_user_list = "SELECT user_name FROM users WHERE user_name<>'admin' AND user_name<>'".$user_name."'";
-    $sql_friend_list = "SELECT friend_id, notice FROM group_lists WHERE group_id ='".$q."'";
+    $sql_friend_list = "SELECT friend_id, notice FROM group_lists WHERE group_id ='".$q."' AND friend_id<>'admin'";
     $sql_group_name = "SELECT group_name FROM groups WHERE group_id = '".$q."'";
     $stid_user_list = oci_parse($conn, $sql_user_list);
     $stid_friend_list = oci_parse($conn, $sql_friend_list);
