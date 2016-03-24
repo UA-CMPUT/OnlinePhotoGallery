@@ -108,7 +108,7 @@ if(isset($_POST['upload_analysis'])) {
 		
 	}else {
 		$query .= ', COUNT(*) count FROM images';
-		$columns .= '</b></td><td><b>Count';
+		$columns .= '</b></td><td><b>Total';
 		
 	}
 	
@@ -227,7 +227,7 @@ if(isset($_POST['upload_analysis'])) {
     
     
     
-    if$showWeekly) {
+    if($showWeekly) {
     	if($identifier==0) {
     		
     		$query .= ' GROUP BY TO_CHAR(timing,\'WW\')';
@@ -240,6 +240,7 @@ if(isset($_POST['upload_analysis'])) {
     
     
     // sort the image 
+    //might can delete===========================
     $query .= ' ORDER BY count DESC';
     
     $conn=connect();
@@ -282,18 +283,21 @@ if(isset($_POST['upload_analysis'])) {
 <html>
 	<Body>
 		<h1>Data Analysis</h1>
-		<form name="DataForm" action="<?php echo $php_self?>" method="post" >
+		
 		<div id="dataAnalysis_button"> Analysis Data </div>
 		<div id="data_analysis_panel">
 				<form action="dataAnalysis.php" method="post">
 					<fieldset>
 						user:	<input type="text" name="keywords" placeholder="Please enter user id"> <br /> <br />
 						key Words:	<input type="text" name="keywords" placeholder="Please enter key words"> <br /> <br />
-						From:	<input type="text" name="startDate" placeholder="Please enter start date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />			
-						To:	<input type="text" name="endDate" placeholder="Please enter end date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />
+						From:	<input type="text" name="start" placeholder="Please enter start date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />			
+						To:	<input type="text" name="end" placeholder="Please enter end date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />
 						<button type="reset">Reset</button>
 						<input type="submit" name="upload_analysis" value="Submit">
 						
+						
+						
+						<form name="DataForm" action="<?php echo $php_self?>" method="post" >
 						<input  type = "checkbox" name = "showUsers" value = "Users">Users					
 						<input  type = "checkbox" name = "showSubjects" value = "subjects">subjects
 						<input  type = "checkbox" name = "showWeekly" value = "weekly">Weekly
