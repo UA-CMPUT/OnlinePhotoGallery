@@ -27,12 +27,12 @@
 
 </html>
 
+
 <?php
 function search($conn) {
 	include("connDB.php");
 	echo "function called";
 	
-
 	if(!empty($_POST) && isset($_POST['submit_search'])) {
     // The user submitted search query, get the conditions
     $keywords = $_POST['description'];
@@ -45,6 +45,7 @@ function search($conn) {
     
     $conn=connect();
     echo "1";
+    echo $to;
     if ($keywords != '') {
     	echo"here second";
         // If there are keywords
@@ -58,20 +59,18 @@ function search($conn) {
             }
         }
         echo $keywords;
+         // Construct the query based on keywords, and the other search criteria entered
+        $sql = 'SELECT photo_id, thumbnail, ((SCORE(1) * 6) + (SCORE(2) * 3) + SCORE(3)) score FROM images WHERE CONTAINS (subject, \''.$contains.'\', 1) > 0 OR CONTAINS (place, \''.$contains.'\', 2) > 0 OR CONTAINS (description, \''.$contains.'\', 3) > 0';
         
-        // Construct the query based on keywords, and the other search criteria entered
-        $sql = "SELECT photo_id, thumbnail FROM images where owner_name = '".$user."' and (place like '".$contains."' or subject like'".$contains."' or description like'" .$contains."')";
+        $sql = $sql . ' and (owner_name = \''.$user.'\' or \''.$user.'\' = \'admin\' or permitted = 1 or permitted in (SELECT group_id FROM group_lists WHERE friend_id = \''.$user.'\') or \''.$user.'\' in (SELECT user_name FROM groups WHERE group_id = permitted))';
         
         if ($from != '') {
-            $sql = $sql . " and timing >= TO_DATE('".$from."', 'yyyy/mm/dd')";
-            }
-       
-        else if ($to != '') {
-            $sql = $sql . " and timing >= TO_DATE('".$to."', 'yyyy/mm/dd')";
+            $sql = $sql . ' and timing >= TO_DATE(\''.$from.'\', \'yyyy/mm/dd\')';
         }
+        if ($to != '') {
+            $sql = $sql . ' and timing <= TO_DATE(\''.$to.'\', \'yyyy/mm/dd\')';
         }
-   
-        /*
+        
         if ($searchType == 'f') {
             $sql = $sql . ' ORDER BY timing DESC';
         }
@@ -82,8 +81,7 @@ function search($conn) {
             $sql = $sql . ' ORDER BY score DESC';
         }
     }
-    /*else {
-    	  echo "here third";
+    else {
         // Else there are no keywords, so construct the query only based on time
         $sql = 'SELECT photo_id, thumbnail FROM images';
         
@@ -92,7 +90,7 @@ function search($conn) {
         if ($from != '') {
             $sql = $sql . ' and timing >= TO_DATE(\''.$from.'\', \'yyyy/mm/dd\')';
         }
-        else if ($to != '') {
+        if ($to != '') {
             $sql = $sql . ' and timing <= TO_DATE(\''.$to.'\', \'yyyy/mm/dd\')';
         }  
         
@@ -102,7 +100,12 @@ function search($conn) {
         else if ($searchType == 'l') {
             $sql = $sql . ' ORDER BY timing';
         }
-    }*/
+    }
+    
+    echo $sql;
+    $stid = oci_parse($conn, $sql);
+    oci_execute($stid);
+   
     echo $sql;
     $stid = oci_parse($conn, $sql);
     oci_execute($stid);
@@ -116,7 +119,6 @@ function search($conn) {
     oci_free_statement($stid);
     oci_close($conn);
 }
-
 }
 
 
