@@ -43,7 +43,6 @@
             padding: 10px 20px 10px 20px;
             text-decoration: none;
         }
-
         .btn:hover {
             background: #3cb0fd;
             background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
@@ -53,6 +52,36 @@
             background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
             text-decoration: none;
         }
+
+
+        .btn2 {
+            background: #ff501f;
+            background-image: -webkit-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -moz-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -ms-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -o-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: linear-gradient(to bottom, #ff501f, #ff0a11);
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+        }
+
+        .btn2:hover {
+            background: #ff501f;
+            background-image: -webkit-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -moz-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -ms-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: -o-linear-gradient(top, #ff501f, #ff0a11);
+            background-image: linear-gradient(to bottom, #ff501f, #ff0a11);
+            text-decoration: none;
+        }
+
+
         body{
             font-family: "Segoe UI", Arial, sans-serif;
             text-align: center;
@@ -115,8 +144,10 @@
         <?php
         if ($_GET['ACK']== 2) echo "<div id='success-show' style='color:#0000FF'>Add friends success.</div>" ;
         elseif ($_GET['ACK']== 3) echo "<div id='success-show' style='color:#0000FF'>Delete friends success.</div>" ;
+        elseif ($_GET['ACK']== 4) echo "<div id='success-show' style='color:#0000FF'>Delete group success.</div>" ;
         elseif ($_GET['ACK']== -3) echo "<div id='success-show' style='color:#FF0000'>Cannot add friends into the group. Please try again.</div>" ;
         elseif ($_GET['ACK']== -4) echo "<div id='success-show' style='color:#FF0000'>Cannot delete friends from the group. Please try again.</div>" ;
+        elseif ($_GET['ACK']== -5) echo "<div id='success-show' style='color:#FF0000'>Cannot delete group. Please try again.</div>" ;
         ?>
         <strong>Select the Group You Want to Edit</strong><br>
         <div class="allfull" id='t2' style='...'>

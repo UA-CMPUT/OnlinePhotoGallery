@@ -75,8 +75,7 @@ if( isset( $_POST['signup-button'])){
     $insert_public_sql = "INSERT INTO group_lists VALUES (1, '".$user_name."', '".$now_date."', 'system added' )";
     $insert_public_stid = oci_parse($conn, $insert_public_sql);
     $insert_public_result = oci_execute($insert_public_stid);
-
-
+    
     /* all insertion success, header to main_page */
     if ( $insert_users_result && $insert_persons_result && $insert_public_result){
         oci_commit($conn);

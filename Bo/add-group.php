@@ -33,7 +33,6 @@
     }
     $all_group_info = array();
     while ($group = oci_fetch_row($stid2)){
-        echo $group[1]."<br>";
         if ($new_group == $group[1]){
             header( "location:groups.php?ACK=-2" );
             exit();
@@ -42,9 +41,6 @@
         }
     }
     while ($group = oci_fetch_row($stid)){
-        echo "this this <br>";
-        echo $group[1]."<br>";
-
         if ($new_group == $group[1]){
             header( "location:groups.php?ACK=-2" );
             exit();
@@ -76,20 +72,17 @@
     $add_stid = oci_parse($conn, $add_sql);
     $add_result = oci_execute($add_stid);
     /* add admin to each group */
-    $add_admin_sql = "INSERT INTO group_lists ('".$id_guess."', 'admin', '".$now_date."', 'system added')";
+    $add_admin_sql = "INSERT INTO group_lists VALUES ('".$id_guess."', 'admin', '".$now_date."', 'system added')";
     $add_admin_stid = oci_parse($conn, $add_admin_sql);
     $add_admin_result = oci_execute($add_admin_stid);
     if (!($add_result && $add_admin_result)){
         oci_rollback($conn);
-        oci_free_statement($add_stid);
-        oci_free_statement($add_admin_stid);
-        oci_close($conn);
         header( "location:groups.php?ACK=-1" );
     }else{
         oci_commit($conn);
-        oci_free_statement($add_stid);
-        oci_free_statement($add_admin_stid);
-        oci_close($conn);
         header( "location:groups.php?ACK=1" );
     }
+    oci_free_statement($add_stid);
+    oci_free_statement($add_admin_stid);
+    oci_close($conn);
 ?>

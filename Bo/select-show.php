@@ -67,7 +67,13 @@
         echo "</select><br>";
         echo "<button type=\"submit\" class=\"btn\" name=\"delete-friend-button\" style='margin-top: 10px'>Delete from friends</button><br>";
         echo "</form>";
-        echo "</div>";
+        echo "</div><div class='allfull'>";
+        echo "<form name=\"delete-a-group\" method=\"post\" action='delete-group.php?ID=".$q."' enctype=\"multipart/form-data\">";
+        echo "<button type=\"submit\" class=\"btn2\" name=\"delete-group-button\" style='margin-top: 10px'>Delete This Group</button><br>";
+        echo "</form></div>";
+
+
+
     }else{
         echo "<div id='success-show' style='color:#FF0000'>Cannot connect to Oracle server. Please try again later.</div>";
     }

@@ -8,7 +8,7 @@ if ( !isset ( $_SESSION['USER_NAME'] ) ) {
 };
 $user_name = $_SESSION['USER_NAME'];
 $conn = connect();
-$sql_other = "SELECT i.photo_id FROM images i WHERE '".$user_name."' IN (SELECT gl.friend_id FROM group_lists gl WHERE gl.group_id = i.permitted)";
+$sql_other = "SELECT i.photo_id FROM images i WHERE owner_name <> '".$user_name."' AND '".$user_name."' IN (SELECT gl.friend_id FROM group_lists gl WHERE gl.group_id = i.permitted)";
 $sql_own = "SELECT photo_id FROM images WHERE owner_name = '".$user_name."'";
 $stid_other = oci_parse( $conn, $sql_other );
 $stid_own = oci_parse( $conn, $sql_own);
