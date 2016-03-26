@@ -1,4 +1,8 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * Author: Bo Zhou
+ */
     session_start();
     $_SESSION = array();
     if( isset( $_COOKIE[session_name()] ) ) {

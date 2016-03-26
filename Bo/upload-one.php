@@ -1,4 +1,9 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * Author: Bo Zhou
+ */
+
     function img_resize($target, $newcopy, $w, $h) {
         list($w_orig, $h_orig) = getimagesize($target);
         $scale_ratio = $w_orig / $h_orig;

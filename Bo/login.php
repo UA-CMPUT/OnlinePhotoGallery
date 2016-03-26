@@ -1,4 +1,9 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * Author: Bo Zhou
+ */
+
 include("connDB.php");
 if( isset( $_POST['login-button'] ) ){
     //echo "login";

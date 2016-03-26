@@ -14,8 +14,8 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Baihong Qi" >
+    <meta name="main_page" content="PHP,HTML,CSS,JAVASCRIPT">
+    <meta name="author" content="Bo Zhou" >
 
     <title>Online Photo Gallery</title>
 

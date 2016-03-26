@@ -16,7 +16,6 @@ $sql_own = "SELECT i.*, g.group_name FROM images i, groups g WHERE i.owner_name 
 $stid_own = oci_parse( $conn, $sql_own);
 $result_own = oci_execute($stid_own);
 $all_info = array();
-
 if ( !$result_own ) {
     echo '<div id=\'message\'>Error! Unknown Image ID!</div>';
 } else {
@@ -25,30 +24,19 @@ if ( !$result_own ) {
     }
 }
 
-//foreach ($all_info as $item){
-//    echo $item["PHOTO_ID"]."<br>";
-//    echo $item["TIMING"]."<br>";
-//    echo $item["OWNER_NAME"]."<br>";
-//    echo $item["PLACE"]."<br>";
-//    echo $item["DESCRIPTION"]."<br>";
-//    echo "------------------------<br>";
-//}
-
-
 $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
 $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
-
 $stid = oci_parse( $conn, $sql );
 $stid2 = oci_parse( $conn, $sql2);
 $result = oci_execute( $stid );
 $result2 = oci_execute( $stid2 );
+
 if (!($result2 && $result)){
     header( "location:index.php?ERR=err" );
     exit();
 }
 
 $all_group_info = array();
-
 while ($group = oci_fetch_row($stid2)){
     array_push($all_group_info, $group);
 }
@@ -57,10 +45,17 @@ while ($group = oci_fetch_row($stid)){
 }
 oci_free_statement($stid);
 oci_free_statement($stid2);
+oci_free_statement($stid_own);
+oci_close($conn);
 
 ?>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="own_page" content="PHP,HTML,CSS,JAVASCRIPT">
+    <meta name="author" content="Bo Zhou" >
     <style type="text/css">
         a {
             color: rgb(200, 100, 50);
@@ -70,15 +65,6 @@ oci_free_statement($stid2);
             transition-timing-function: ease, ease;
             display: block;
         }
-        .a_button {
-            color: rgb(3, 7, 200);
-            /*font-weight: bold;*/
-            text-decoration: none;
-            transition-property: background-color, color;
-            transition-timing-function: ease, ease;
-            display: block;
-        }
-
         button{
             border: none;
             background:transparent;
@@ -124,46 +110,22 @@ oci_free_statement($stid2);
         .edit:hover {
             background-color: rgb(200, 200, 255);
         }
-        #message{
-            text-align: center;
-            background-color: rgb(240, 240, 240);
-            position: fixed;
-            left: 100px;
-            right: 100px;
-            margin-top: 20%;
-            padding: 20px;
-            border: 2px groove black;
-        }
     </style>
 </head>
 
 <body>
-<?php
-//if( isset ( $_POST['EDIT_PHOTO'] ) ){
-//    $edit_subject = $_POST['EDIT_SUBJECT'];
-//    $edit_permitted = $_POST['EDIT_PERMITTED'];
-//    $edit_date = $_POST['EDIT_DATE'];
-//    $edit_place = $_POST['EDIT_PLACE'];
-//    $edit_description = $_POST['EDIT_DESCRIPTION'];
-//
-//    $edit_sql = 'UPDATE images SET subject=\''.$edit_subject.'\', permitted=\''.$edit_permitted.'\', timing=\''.$edit_date.'\', place=\''.$edit_place.'\', description=\''.$edit_description.'\' WHERE photo_id=\''.$_GET['id'].'\'';
-//    $edit_stid = oci_parse( $conn, $edit_sql );
-//    $edit_result = oci_execute( $edit_stid );
-//
-//    if ( !$edit_result ) {
-//        $err = oci_error( $edit_stid );
-//        echo '<div id=\'message\'>'.$err['message'].'</div>';
-//    } else {
-//        echo '<div id=\'message\'>Success!</div>';
-//    }
-//    oci_free_statement($edit_stid);
-//}
-?>
+<div style="width: 100%">
+    <?php
+    if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Delete photo success.</div>" ;
+    elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot delete photo. Please try again.</div>" ;
+    elseif ($_GET['ACK']== -2) echo "<div id='success-show' style='color:#FF0000'>You already have this group. Please change a group name.</div>" ;
+    ?>
+</div>
 
 <?php
+
 $num = 0;
 foreach ($all_info as $info){
-//$info = $all_info[1];
     $num++;
     echo "<fieldset>
     <legend>Photo: ".$num."</legend>";
@@ -185,62 +147,15 @@ foreach ($all_info as $info){
     echo "</div>";
     echo "<div class='control'><a class='edit' href='delete-image.php?id=".$info["PHOTO_ID"]."'>DELETE</a></div>";
     echo "<div class='control'><a class='edit' href='edit_image.php?id=".$info["PHOTO_ID"]."'>EDIT</a></div>";
-
-
-
-//    echo "<div class='right' id='photo2".$info["PHOTO_ID"]."' style='display: none'>
-//            <form method='post' action='#'>
-//                <div style='float: left'>";
-//    echo "<input type='hidden' name='id' value='".$info["PHOTO_ID"]."'>";
-//    echo '<input type=\'text\' name=\'EDIT_SUBJECT\' value=\''.$person_info['FIRST_NAME'].'\'><br>';
-//    echo "<select name='EDIT_PERMITTED'>";
-//    foreach($all_group_info as $g_info) {
-//        if ($info["GROUP_ID"] == $g_info["GROUP_ID"]){
-//            echo "<option value='" . $g_info[0] . "' selected>" . $g_info[1];
-//        }else {
-//            echo "<option value='" . $g_info[0] . "'>" . $g_info[1];
-//        }
-//    }
-//    echo "</select>";
-//    echo '<input type=\'text\' name=\'EDIT_DATE\' value=\''.$info['DATE'].'\'><br>';
-//    echo '<textarea name=\'EDIT_PLACE\' value=\''.$info['PLACE'].'\'><br>';
-//    echo '<textarea name=\'EDIT_DESCRIPTION\' value=\''.$info['DESCRIPTION'].'\'><br>';
-//    echo '</div>';
-//    echo "<div class='control'>
-//                <a class='edit' href='#' onclick='edit(\"photo1".$info["PHOTO_ID"]."\", \"photo2".$info["PHOTO_ID"]."\")'>Cancel</a>
-//                <button type=\"submit\" name=\"EDIT_PHOTO\">
-//                    <a class='edit' onclick='edit(\"photo1".$info["PHOTO_ID"]."\", \"photo2".$info["PHOTO_ID"]."\")'>Save</a>
-//                </button>
-//            </div>
-//            </form>
-//        </div>
-//    </fieldset>";
 echo "</fieldset>";
 }
 ?>
 <script type="text/javascript">
-    function edit( pos_1, pos_2 ) {
-        var tar_1 = typeof pos_1 == "string" ? document.getElementById( pos_1 ) : pos_1;
-        var tar_2 = typeof pos_2 == "string" ? document.getElementById( pos_2 ) : pos_2;
-        if ( tar_1.style.display != "none" ) {
-            tar_1.style.display = "none";
-            tar_2.style.display = "block";
-        } else {
-            tar_1.style.display = "block";
-            tar_2.style.display = "none";
-            location.reload();
-        }
-    }
-    function popMessage() {
-        var box = document.getElementById( "message" );
-        box.style.display = "none";
-        self.location = 'own_images.php';
-    }
-    setTimeout( "popMessage()", 1000 );
+    function hideMessage() {
+        var successShow = $("#success-show");
+        successShow.html('<br>');
+    };
+    setTimeout(hideMessage, 5000);
 </script>
 </body>
 </html>
-<?php
-oci_free_statement($stid_own);
-oci_close($conn);
-?>

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * Author: Bo Zhou
+ */
+
 //echo "This is add-friend";
 include("connDB.php");
 session_start();
