@@ -12,8 +12,7 @@ $sql_date_format = "alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss'"
 $stid_date_format = oci_parse( $conn, $sql_date_format );
 $result_date_format = oci_execute( $stid_date_format );
 oci_free_statement($stid_date_format);
-
-$sql_own = "SELECT i.* g.group_name FROM images i, groups g WHERE i.owner_name = '".$user_name."' AND i.permitted = g.group_id";
+$sql_own = "SELECT i.*, g.group_name FROM images i, groups g WHERE i.owner_name = '".$user_name."' AND i.permitted = g.group_id";
 $stid_own = oci_parse( $conn, $sql_own);
 $result_own = oci_execute($stid_own);
 $all_info = array();
@@ -25,6 +24,16 @@ if ( !$result_own ) {
         array_push($all_info, $info);
     }
 }
+
+//foreach ($all_info as $item){
+//    echo $item["PHOTO_ID"]."<br>";
+//    echo $item["TIMING"]."<br>";
+//    echo $item["OWNER_NAME"]."<br>";
+//    echo $item["PLACE"]."<br>";
+//    echo $item["DESCRIPTION"]."<br>";
+//    echo "------------------------<br>";
+//}
+
 
 $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
 $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
@@ -61,6 +70,15 @@ oci_free_statement($stid2);
             transition-timing-function: ease, ease;
             display: block;
         }
+        .a_button {
+            color: rgb(3, 7, 200);
+            /*font-weight: bold;*/
+            text-decoration: none;
+            transition-property: background-color, color;
+            transition-timing-function: ease, ease;
+            display: block;
+        }
+
         button{
             border: none;
             background:transparent;
@@ -92,6 +110,8 @@ oci_free_statement($stid2);
         }
         .control {
             float: right;
+            width: 10%;
+            height: 50%;
         }
         .edit {
             font-size: 15px;
@@ -119,76 +139,83 @@ oci_free_statement($stid2);
 
 <body>
 <?php
-if( isset ( $_POST['EDIT_PHOTO'] ) ){
-    $edit_subject = $_POST['EDIT_SUBJECT'];
-    $edit_date = $_POST['EDIT_DATE'];
-    $edit_place = $_POST['EDIT_PLACE'];
-    $edit_description = $_POST['EDIT_DESCRIPTION'];
-
-    $edit_sql = 'UPDATE images SET SUBJECT=\''.$edit_subject.'\', LAST_=\''.$edit_last_name.'\', ADDRESS=\''.$edit_address.'\', EMAIL=\''.$edit_email.'\', PHONE=\''.$edit_phone.'\' WHERE PERSON_ID=\''.$_SESSION['PERSON_ID'].'\'';
-    $edit_stid = oci_parse( $conn, $edit_sql );
-    $edit_result = oci_execute( $edit_stid );
-
-    if ( !$edit_result ) {
-        $err = oci_error( $edit_stid );
-        echo '<div id=\'message\'>'.$err['message'].'</div>';
-    } else {
-        echo '<div id=\'message\'>Success!</div>';
-    }
-    oci_free_statement($edit_stid);
-}
+//if( isset ( $_POST['EDIT_PHOTO'] ) ){
+//    $edit_subject = $_POST['EDIT_SUBJECT'];
+//    $edit_permitted = $_POST['EDIT_PERMITTED'];
+//    $edit_date = $_POST['EDIT_DATE'];
+//    $edit_place = $_POST['EDIT_PLACE'];
+//    $edit_description = $_POST['EDIT_DESCRIPTION'];
+//
+//    $edit_sql = 'UPDATE images SET subject=\''.$edit_subject.'\', permitted=\''.$edit_permitted.'\', timing=\''.$edit_date.'\', place=\''.$edit_place.'\', description=\''.$edit_description.'\' WHERE photo_id=\''.$_GET['id'].'\'';
+//    $edit_stid = oci_parse( $conn, $edit_sql );
+//    $edit_result = oci_execute( $edit_stid );
+//
+//    if ( !$edit_result ) {
+//        $err = oci_error( $edit_stid );
+//        echo '<div id=\'message\'>'.$err['message'].'</div>';
+//    } else {
+//        echo '<div id=\'message\'>Success!</div>';
+//    }
+//    oci_free_statement($edit_stid);
+//}
 ?>
 
 <?php
+$num = 0;
 foreach ($all_info as $info){
+//$info = $all_info[1];
+    $num++;
     echo "<fieldset>
-    <legend>Photo: </legend>
-    <div class='left'>
+    <legend>Photo: ".$num."</legend>";
+    echo "<div class='left'><img src=\"imageView.php?image_id='".$info["PHOTO_ID"]."'&original=0\"></div>";
+    echo "<div class='left'>
         Subject:<br>
         Permitted:<br>
         Date:<br>
         Place:<br>
         Description:<br>
     </div>
-    <div class='right' id='photo1'>
+    <div class='right' id='photo1".$info["PHOTO_ID"]."'>
         <div style='float: left'>";
     echo $info['SUBJECT'].'<br>';
     echo $info['GROUP_NAME'].'<br>';
-    echo $info['DATE'].'<br>';
+    echo $info['TIMING'].'<br>';
     echo $info['PLACE'].'<br>';
     echo $info['DESCRIPTION'].'<br>';
     echo "</div>";
-    echo "<div class='control'>
-            <a class='edit' href='#' onclick='edit(\"photo1\", \"photo2\")'>edit</a>
-        </div>
-    </div>";
+    echo "<div class='control'><a class='edit' href='delete-image.php?id=".$info["PHOTO_ID"]."'>DELETE</a></div>";
+    echo "<div class='control'><a class='edit' href='edit_image.php?id=".$info["PHOTO_ID"]."'>EDIT</a></div>";
 
-    echo "<div class='right' id='photo2' style='display: none'>
-            <form method='post' action='#'>
-                <div style='float: left'>";
-    echo '<input type=\'text\' name=\'EDIT_SUBJECT\' value=\''.$person_info['FIRST_NAME'].'\'><br>';
-    echo "<select name='EDIT_PERMITTED'>";
-    foreach($all_group_info as $g_info) {
-        if ($info["GROUP_ID"] == $g_info["GROUP_ID"]){
-            echo "<option value='" . $g_info[0] . "' selected>" . $g_info[1];
-        }else {
-            echo "<option value='" . $g_info[0] . "'>" . $g_info[1];
-        }
-    }
-    echo "</select>";
-    echo '<input type=\'text\' name=\'EDIT_DATE\' value=\''.$info['DATE'].'\'><br>';
-    echo '<textarea name=\'EDIT_PLACE\' value=\''.$info['PLACE'].'\'><br>';
-    echo '<textarea name=\'EDIT_DESCRIPTION\' value=\''.$info['DESCRIPTION'].'\'><br>';
-    echo '</div>';
-    echo "<div class='control'>
-                <a class='edit' href='#' onclick='edit(\"photo1\", \"photo2\")'>Cancel</a>
-                <button type=\"submit\" name=\"EDIT_PHOTO\">
-                    <a class='edit' onclick='edit(\"photo1\", \"photo2\")'>Save</a>
-                </button>
-            </div>
-            </form>
-        </div>
-    </fieldset>";
+
+
+//    echo "<div class='right' id='photo2".$info["PHOTO_ID"]."' style='display: none'>
+//            <form method='post' action='#'>
+//                <div style='float: left'>";
+//    echo "<input type='hidden' name='id' value='".$info["PHOTO_ID"]."'>";
+//    echo '<input type=\'text\' name=\'EDIT_SUBJECT\' value=\''.$person_info['FIRST_NAME'].'\'><br>';
+//    echo "<select name='EDIT_PERMITTED'>";
+//    foreach($all_group_info as $g_info) {
+//        if ($info["GROUP_ID"] == $g_info["GROUP_ID"]){
+//            echo "<option value='" . $g_info[0] . "' selected>" . $g_info[1];
+//        }else {
+//            echo "<option value='" . $g_info[0] . "'>" . $g_info[1];
+//        }
+//    }
+//    echo "</select>";
+//    echo '<input type=\'text\' name=\'EDIT_DATE\' value=\''.$info['DATE'].'\'><br>';
+//    echo '<textarea name=\'EDIT_PLACE\' value=\''.$info['PLACE'].'\'><br>';
+//    echo '<textarea name=\'EDIT_DESCRIPTION\' value=\''.$info['DESCRIPTION'].'\'><br>';
+//    echo '</div>';
+//    echo "<div class='control'>
+//                <a class='edit' href='#' onclick='edit(\"photo1".$info["PHOTO_ID"]."\", \"photo2".$info["PHOTO_ID"]."\")'>Cancel</a>
+//                <button type=\"submit\" name=\"EDIT_PHOTO\">
+//                    <a class='edit' onclick='edit(\"photo1".$info["PHOTO_ID"]."\", \"photo2".$info["PHOTO_ID"]."\")'>Save</a>
+//                </button>
+//            </div>
+//            </form>
+//        </div>
+//    </fieldset>";
+echo "</fieldset>";
 }
 ?>
 <script type="text/javascript">
@@ -207,7 +234,7 @@ foreach ($all_info as $info){
     function popMessage() {
         var box = document.getElementById( "message" );
         box.style.display = "none";
-        self.location = 'profile.php';
+        self.location = 'own_images.php';
     }
     setTimeout( "popMessage()", 1000 );
 </script>

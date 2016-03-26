@@ -61,7 +61,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
         <ul class = "navbar-left">
             <form class="navbar-form" role="search" action="search.php" target="iframepage">
                 <div class="form-group">
-                    <input type="text" id="" class="form-control has-search-icon" placeholder="Search Pictures" style="">
+                    <input type="text" id="" class="form-control has-search-icon" placeholder="Search Pictures" style="width: 400px">
                 </div>
             </form>
         </ul>
