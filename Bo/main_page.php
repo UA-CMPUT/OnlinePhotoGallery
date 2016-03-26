@@ -88,7 +88,8 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>
+<!--                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>-->
+                        <a href="own_images.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" ><i class="fa fa-upload"></i>  Upload Photos<span class="fa arrow"></span></a>

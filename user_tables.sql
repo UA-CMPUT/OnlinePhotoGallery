@@ -11,7 +11,6 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
-
 CREATE TABLE users (
    user_name varchar(24),
    password  varchar(24),
