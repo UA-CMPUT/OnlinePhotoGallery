@@ -17,34 +17,12 @@ $stid_own = oci_parse( $conn, $sql_own);
 $result_own = oci_execute($stid_own);
 $all_info = array();
 if ( !$result_own ) {
-    echo '<div id=\'message\'>Error! Unknown Image ID!</div>';
+    echo '<div id=\'message\'>Error! Cannot connect to data server!</div>';
 } else {
     while ($info = oci_fetch_array($stid_own, OCI_ASSOC)){
         array_push($all_info, $info);
     }
 }
-
-$sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
-$sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
-$stid = oci_parse( $conn, $sql );
-$stid2 = oci_parse( $conn, $sql2);
-$result = oci_execute( $stid );
-$result2 = oci_execute( $stid2 );
-
-if (!($result2 && $result)){
-    header( "location:index.php?ERR=err" );
-    exit();
-}
-
-$all_group_info = array();
-while ($group = oci_fetch_row($stid2)){
-    array_push($all_group_info, $group);
-}
-while ($group = oci_fetch_row($stid)){
-    array_push($all_group_info, $group);
-}
-oci_free_statement($stid);
-oci_free_statement($stid2);
 oci_free_statement($stid_own);
 oci_close($conn);
 
@@ -117,8 +95,9 @@ oci_close($conn);
 <div style="width: 100%">
     <?php
     if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Delete photo success.</div>" ;
+    elseif ($_GET['ACK']== 2) echo "<div id='success-show' style='color:#0000FF'>Update photo success.</div>" ;
     elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot delete photo. Please try again.</div>" ;
-    elseif ($_GET['ACK']== -2) echo "<div id='success-show' style='color:#FF0000'>You already have this group. Please change a group name.</div>" ;
+    elseif ($_GET['ACK']== -2) echo "<div id='success-show' style='color:#FF0000'>Cannot update photo. Please try again.</div>" ;
     ?>
 </div>
 
