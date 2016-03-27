@@ -1,8 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Bo Zhou
- */
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016 
+* 
+*/
 function connect() {
     $conn = oci_connect('bzhou2', 'ZHOUbo2016');
     if (!$conn) {

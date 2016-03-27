@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <?php
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
     include("connDB.php");
     session_start();
     if ( !isset ( $_SESSION['USER_NAME'] ) ) {
         header( "location:index.php?ERR=session" );
-        exit;
+        exit();
     };
     $user_name = $_SESSION['USER_NAME'];
     $conn = connect();

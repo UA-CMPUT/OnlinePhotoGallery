@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--/*-->
+<!--* CMPUT 391 Project Online Photo Gallery-->
+<!--* Written by Bo Zhou-->
+<!--* Mar 26, 2016-->
+<!--*-->
+<!--*/-->
 <html lang="en">
     <head>
 		<meta charset="utf-8">

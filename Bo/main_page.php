@@ -1,4 +1,10 @@
 <?php
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
 session_start();
 if ( !isset( $_SESSION['USER_NAME'] ) ) {
     header( "location:index.php?ERR=session" );
@@ -129,7 +135,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
         var subWeb = document.frames ? document.frames["iframepage"].document :
             ifm.contentDocument;
         if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight + 100;
+            ifm.height = subWeb.body.scrollHeight;
         }
     }
 </script>

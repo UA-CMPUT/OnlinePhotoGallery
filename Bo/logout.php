@@ -1,8 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Bo Zhou
- */
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
     session_start();
     $_SESSION = array();
     if( isset( $_COOKIE[session_name()] ) ) {

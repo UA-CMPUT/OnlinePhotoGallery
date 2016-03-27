@@ -1,10 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Bo Zhou
- */
-
-//echo "This is add-friend";
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
 include("connDB.php");
 session_start();
 if ( !isset ( $_SESSION['USER_NAME'] ) ) {

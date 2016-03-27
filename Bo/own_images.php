@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <?php
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
 include("connDB.php");
 session_start();
 if ( !isset ( $_SESSION["USER_NAME"] ) ) {
     header( "location:index.php?ERR=session" );
+    exit();
 }
 $user_name = $_SESSION["USER_NAME"];
 $conn = connect();
@@ -105,6 +112,22 @@ oci_close($conn);
 
 $num = 0;
 foreach ($all_info as $info){
+    $conn = connect();
+    $sql_viewed = "SELECT count(*) AS numberOfviewer FROM images_viewed WHERE photo_id ='".$info["PHOTO_ID"]."' GROUP BY photo_id";
+    $stid_viewed = oci_parse($conn, $sql_viewed);
+    $result_viewed = oci_execute($stid_viewed);
+    if($result_viewed){
+        $item = oci_fetch_array($stid_viewed, OCI_ASSOC);
+        $count = $item["NUMBEROFVIEWER"];
+        if ($count == ''){
+            $count = 0;
+        }
+    }else{
+        echo '<div id=\'message\'>Error! Cannot connect to data server!</div>';
+    }
+    oci_free_statement($stid_viewed);
+    oci_close($conn);
+
     $num++;
     echo "<fieldset>
     <legend>Photo: ".$num."</legend>";
@@ -115,6 +138,7 @@ foreach ($all_info as $info){
         Date:<br>
         Place:<br>
         Description:<br>
+        Viewed:<br>
     </div>
     <div class='right' id='photo1".$info["PHOTO_ID"]."'>
         <div style='float: left'>";
@@ -123,10 +147,12 @@ foreach ($all_info as $info){
     echo $info['TIMING'].'<br>';
     echo $info['PLACE'].'<br>';
     echo $info['DESCRIPTION'].'<br>';
+    echo $count.'<br>';
     echo "</div>";
     echo "<div class='control'><a class='edit' href='delete-image.php?id=".$info["PHOTO_ID"]."'>DELETE</a></div>";
     echo "<div class='control'><a class='edit' href='edit_image.php?id=".$info["PHOTO_ID"]."'>EDIT</a></div>";
-echo "</fieldset>";
+    echo "<div class='control'><a class='edit' href='show_image.php?id=".$info["PHOTO_ID"]."'>SHOW</a></div>";
+    echo "</fieldset>";
 }
 ?>
 <script type="text/javascript">

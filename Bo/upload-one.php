@@ -1,9 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Bo Zhou
- */
-
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
     function img_resize($target, $newcopy, $w, $h) {
         list($w_orig, $h_orig) = getimagesize($target);
         $scale_ratio = $w_orig / $h_orig;
