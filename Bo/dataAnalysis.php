@@ -2,23 +2,23 @@
 
 
 include("connDB.php");
-$message= "";
+/*$message= "";
 $images= "";
 $php_self= $_SERVER['PHP_SELF'];
 session_start();
 
 
 //If session could not define the user name, we will jump to the login page
-if(!$_SESSION['username']) {
-	redirect('login.php');	
-}
+//if(!$_SESSION['username']) {
+	//redirect('login.php');	
+//}
 
 $user=$_SESSION['username'];
 
 //Only administrater has right to do the dataAnalysis
 if ($user != 'admin') {
     redirect('main_page.php');
-}
+}*/
 
 if(isset($_POST['upload_analysis'])) {
 	//admin has specify the analsis condition and submit
@@ -317,7 +317,7 @@ if(isset($_POST['upload_analysis'])) {
     			if (isset($_POST['upload_analysis'])) {      
         			if ($results) {
             		echo '<table border="2">';
-            		echo '<caption>Query Results:</caption>';
+            		echo '<caption>Analysis Results:</caption>';
             		echo $columns;
             		echo $results;
             		echo '</table>';

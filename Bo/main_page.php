@@ -21,7 +21,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="main_page" content="PHP,HTML,CSS,JAVASCRIPT">
-    <meta name="author" content="Bo Zhou" >
+    <meta name="author" content="Yueran Sun" >
 
     <title>Online Photo Gallery</title>
 
@@ -115,7 +115,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
                         <a href="search.php" target="iframepage"><i class="fa fa-globe"></i>  Advanced Search</a>
                     </li>
                     <li>
-                        <a href="blank_test.php" target="iframepage"><i class="fa fa-bar-chart"></i>  Data Analysis</a>
+                        <a href="dataAnalysis.php" target="iframepage"><i class="fa fa-bar-chart"></i>  Data Analysis</a>
                     </li>
                 </ul>
             </div>
