@@ -41,9 +41,28 @@ function search($conn) {
     $to = $_POST['to_date'];
     $to = str_replace('-', '/', $to);
     $searchType = $_POST['type'];
-    $user = "Aa";
+    $user = "abc";
     
+    //create index for image table
     $conn=connect();
+    $stid = oci_parse($conn, 'drop INDEX descIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'drop INDEX subjIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'drop INDEX placeIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX descIndex ON images(description) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX subjIndex ON images(subject) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX placeIndex ON images(place) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid);
+    
+    //oci_free_statement($stid);
+    //oci_close($conn);*/
+    
+    //search for or condition
+    //$conn=connect();
     if ($keywords != '') {
         // If there are keywords
         $key_array = explode(' ', $keywords);
@@ -114,11 +133,11 @@ function search($conn) {
          echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';       
     }
  
-    oci_free_statement($stid);
-    oci_close($conn);
+    //oci_free_statement($stid);
+    //oci_close($conn);
     
     //and condition
-    $conn=connect();
+    //$conn=connect();
     if ($keywords != '') {
         // If there are keywords
         $key_array = explode(' ', $keywords);
@@ -174,12 +193,11 @@ function search($conn) {
         }
     }
     
-    //echo $sql;
+    echo $sql."<br>";
    
     $stid = oci_parse($conn, $sql);
     oci_execute($stid);
     
-    //echo $sql."<br>";
     
      echo "Search Result for and condition: <br>";
      while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
