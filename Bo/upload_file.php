@@ -52,11 +52,11 @@
             text-align: center;
         }
         fieldset {
-            border: 3px solid rgb(53, 43, 255);
+            border: 3px solid rgb(255, 249, 12);
             margin: 30px;
         }
         legend {
-            color: rgb(243, 3, 116);
+            color: rgb(0, 0, 0);
             font-size: 20px;
             font-weight: bold;
         }
@@ -69,12 +69,12 @@
 </head>
 <body>
 <fieldset>
-    <legend>Files Uploading</legend>
+    <legend>Uploading One Photo</legend>
     <form name="upload-files" method="post" action="upload-one.php" enctype="multipart/form-data">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <?php
         if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Successful uploading. Please upload another file.</div>" ;
-        elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot your upload photo. Please try again.</div>" ;
+        elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot upload your photo. Please try again.</div>" ;
         ?>
         <div class='half' style="margin-top: 20px">
             <strong>1. Select Upload File</strong><br>
@@ -100,7 +100,7 @@
             <input type="text" name="date-input" placeholder="Enter date: dd/mm/yyyy hh24:mi:ss" style='width: 80%'>
         </div>
         <div class = 'half' style='margin-top: 30px; height: 100px'>
-            <strong>4. Input Title (Optional)</strong><br>
+            <strong>4. Input Subject (Optional)</strong><br>
             <input type="text" style="width: 80%" name="title" placeholder="Enter title here..." style='...'>
         </div>
         <div class='half' style='...'>

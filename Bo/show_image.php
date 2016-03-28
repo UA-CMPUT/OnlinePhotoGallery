@@ -169,7 +169,7 @@ if ($pass == 1) {
     <legend>Photo</legend>
     <?php
         if ($pass == 1){
-            $sql3 = "SELECT subject, place, timing, description FROM images WHERE photo_id='".$id."'";
+            $sql3 = "SELECT owner_name, subject, place, timing, description FROM images WHERE photo_id='".$id."'";
             $stid3 = oci_parse($conn, $sql3);
             $result3 = oci_execute($stid3);
             $info = '';
@@ -188,22 +188,10 @@ if ($pass == 1) {
             echo "Place: ".$info['PLACE'].'<br>';
             echo "DATE: ".$info['TIMING'].'<br>';
             echo "Description: ".$info['DESCRIPTION'].'<br>';
-
-//                    Date:<br>
-//                    Place:<br>
-//                    Description:<br>
-                    echo "</div>";
-//            echo "<div class='right' id='photo' style='width: 50%; float: left'>
-//                    <div style='float: left'>";
-//            echo $info['SUBJECT'].'<br>';
-//            echo $info['TIMING'].'<br>';
-//            echo $info['PLACE'].'<br>';
-//            echo $info['DESCRIPTION'].'<br>';
-//            echo "</div><br>";
-            
+            echo "Owner: ".$info['OWNER_NAME'].'<br>';
+            echo "</div>";
         }else{
             echo "<img src='ref/dist/img/denied.jpg' ><br>";
-
         }
     ?>
     <input style="margin-top: 20px" class="btn" type="button" value="BACK" onclick="history.go(-1);return true;">

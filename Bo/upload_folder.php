@@ -1,285 +1,165 @@
+<!DOCTYPE html>
 <?php
-
-require_once("connDB.php");
-
+/*
+* CMPUT 391 Project Online Photo Gallery
+* Written by Bo Zhou
+* Mar 26, 2016
+*
+*/
+include("connDB.php");
 session_start();
-if (!$_SESSION['USER_NAME']) {
-    redirect('index.php');
+if ( !isset ( $_SESSION['USER_NAME'] ) ) {
+    header( "location:index.php?ERR=session" );
+    exit();
+};
+$user_name = $_SESSION['USER_NAME'];
+$conn = connect();
+$sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
+$sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
+
+$stid = oci_parse( $conn, $sql );
+$stid2 = oci_parse( $conn, $sql2);
+$result = oci_execute( $stid );
+$result2 = oci_execute( $stid2 );
+if (!($result2 && $result)){
+    header( "location:index.php?ERR=err" );
+    exit();
 }
 
-$user = $_SESSION['username'];
+$all_group_info = array();
 
-$message = 'Select an image for upload';
-$registered = true;
-$php_self = $_SERVER['PHP_SELF'];
-
-// Retrieve groups the user can upload to
-$conn=connect();
-
-if ($user == 'admin') {
-    $groups = '';
-    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
+while ($group = oci_fetch_row($stid2)){
+    array_push($all_group_info, $group);
 }
-else {
-    $groups = '<option value="2">private</option><option value="1">public</option>';
-    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
+while ($group = oci_fetch_row($stid)){
+    array_push($all_group_info, $group);
 }
-
-$stid = oci_parse($conn, $sql);
-oci_execute($stid);
-
-while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-    $group_id = $row['GROUP_ID'];
-    $group_name = $row['GROUP_NAME'];
-    $group_owner = $row['USER_NAME'];
-    $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-}
-
 oci_free_statement($stid);
+oci_free_statement($stid2);
 oci_close($conn);
-
-// Define max thumbnail size
-define('MAX_THUMBNAIL_DIMENSION', 100);
-
-// Define default timezone
-date_default_timezone_set('America/Denver');
-
-// modified from https://docs.oracle.com/cd/B28359_01/appdev.111/b28845/ch7.htm
-if (!empty($_POST) && isset($_POST['submitUpload']) && isset($_FILES['userfiles']))
-{
-    // Iterate through all files that were selected
-    foreach ($_FILES['userfiles']['name'] as $i => $name) {
-        // Try to upload image to database in blob format
-        try    {
-            // Retrieve entered info
-            $subject = $_POST['subject'];
-            $place = $_POST['place'];
-            $description = $_POST['description'];
-            $date = $_POST['date'];//date('d.M.y');
-            $date = str_replace('-', '/', $date);
-            $group = $_POST['group_id'];
-
-            $imageFileType = pathinfo($_FILES['userfiles']['name'][$i], PATHINFO_EXTENSION);
-
-            $imgcheck = 0;
-
-            // Check to see that image type is jpeg, jpg, or gif according to project spec
-            switch ($imageFileType) {
-                case 'jpg':
-                    if (getimagesize($_FILES['userfiles']['tmp_name'][$i]) != false)
-                        $imgcheck = 1;
-                    break;
-                case 'jpeg':
-                    if (getimagesize($_FILES['userfiles']['tmp_name'][$i]) != false)
-                        $imgcheck = 1;
-                    break;
-                case 'gif':
-                    if (getimagesize($_FILES['userfiles']['tmp_name'][$i]) != false)
-                        $imgcheck = 1;
-                    break;
-                default:
-                    $imgcheck = 0;
-            }
-
-            // Image accepted, upload
-            if($imgcheck == 1) {
-                $image = file_get_contents($_FILES['userfiles']['tmp_name'][$i]);
-                $thumbnail = thumbnail($_FILES['userfiles']['tmp_name'][$i]);
-
-                $name = $_FILES['userfiles']['name'][$i];
-                $maxsize = 99999999;
-
-                // Make sure image size is less than max
-                if($_FILES['userfiles']['size'][$i] < $maxsize ) {
-                    ini_set('display_errors', 1);
-                    error_reporting(E_ALL);
-
-                    //establish connection
-                    $conn=connect();
-                    if (!$conn) {
-                        $e = oci_error();
-                        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-                    }
-
-                    // Generate unique ID
-                    $curr_id = hexdec(uniqid());
-
-                    // Need to assign a unique ID to every picture and let the uploader choose group for permission
-                    $sql = 'INSERT INTO images VALUES '
-                        . '('.$curr_id.',\''.$user.'\',\''.$group.'\',\''.$subject.'\',\''.$place.'\','
-                        . 'TO_DATE(\''.$date.'\', \'yyyy/mm/dd\'),\''.$description.'\',empty_blob(),empty_blob()) '
-                        . 'RETURNING thumbnail, photo INTO :thumbnail, :photo';
-
-                    $stid = oci_parse($conn, $sql);
-
-                    // Create blobs from photo and thumbnail
-                    $thumbnail_blob = oci_new_descriptor($conn, OCI_D_LOB);
-                    $photo_blob = oci_new_descriptor($conn, OCI_D_LOB);
-
-                    oci_bind_by_name($stid, ':thumbnail', $thumbnail_blob, -1, OCI_B_BLOB);
-                    oci_bind_by_name($stid, ':photo', $photo_blob, -1, OCI_B_BLOB);
-
-                    $res=oci_execute($stid, OCI_NO_AUTO_COMMIT);
-
-                    // Save image blobs to database
-                    if(!$thumbnail_blob->save($thumbnail) || !$photo_blob->save($image)) {
-                        oci_rollback($conn);
-                    }
-                    else {
-                        oci_commit($conn);
-                    }
-
-                    if (!$res) {
-                        $err = oci_error($stid);
-                        echo htmlentities($err['message']);
-                    }
-
-                    oci_free_statement($stid);
-
-                    // Sync indexes for searching
-                    $sql = 'BEGIN sync_index; END;';
-                    $stid = oci_parse($conn, $sql);
-                    oci_execute($stid);
-                    oci_free_statement($stid);
-
-                    oci_close($conn);
-
-                    $photo_blob->free();
-                    $thumbnail_blob->free();
-
-                    $message = '<p>Thank you for submitting</p>';
-                }
-                else {
-                    // throw an exception if image too large
-                    throw new Exception("File Size Error");
-                }
-            }
-        }
-        catch(Exception $e) {
-            echo '<h4>'.$e->getMessage().'</h4>';
-        }
-    }
-}
-
-// modified from https://docs.oracle.com/cd/B28359_01/appdev.111/b28845/ch7.htm
-// Create a thumbnail from the submitted image
-function thumbnail($imgfile) {
-    list($w, $h, $type) = getimagesize($imgfile);
-
-    // Retrieve old image
-    switch ($type) {
-        case IMAGETYPE_GIF:
-            $src_img = imagecreatefromgif($imgfile);
-            break;
-        case IMAGETYPE_JPEG:
-            $src_img = imagecreatefromjpeg($imgfile);
-            break;
-        case IMAGETYPE_PNG:
-            $src_img = imagecreatefrompng($imgfile);
-            break;
-        default:
-            throw new Exception('Unrecognized image type ' . $type);
-    }
-
-    if ($w > MAX_THUMBNAIL_DIMENSION || $h > MAX_THUMBNAIL_DIMENSION) {
-        // Rescale image to thumbnail size
-        $scale =  MAX_THUMBNAIL_DIMENSION / (($h > $w) ? $h : $w);
-        $nw = $w * $scale;
-        $nh = $h * $scale;
-
-        $dest_img = imagecreatetruecolor($nw, $nh);
-        imagecopyresampled($dest_img, $src_img, 0, 0, 0, 0, $nw, $nh, $w, $h);
-
-        // overwrite file with new thumbnail
-        switch ($type) {
-            case IMAGETYPE_JPEG:
-                // overwrite file with new thumbnail
-                imagejpeg($dest_img, $imgfile);
-                break;
-            case IMAGETYPE_GIF:
-                imagegif($dest_img, $imgfile);
-                break;
-            default:
-                throw new Exception('Unrecognized image type ' . $type);
-        }
-
-        // Clean up
-        imagedestroy($src_img);
-        imagedestroy($dest_img);
-    }
-
-    return file_get_contents($imgfile);
-}
-
 ?>
 
 <html>
-<head><title>Upload Image</title></head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="upload_file" content="PHP,HTML,CSS,JAVASCRIPT">
+    <meta name="author" content="Bo Zhou" >
+    <style type="text/css">
+        body{
+            font-family: "Segoe UI", Arial, sans-serif;
+            text-align: center;
+        }
+        fieldset {
+            border: 3px solid rgb(53, 43, 255);
+            margin: 30px;
+        }
+        legend {
+            color: rgb(243, 13, 20);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .half {
+            width: 70%;
+            margin:auto;
+        }
+
+    </style>
+</head>
 <body>
-
-<form name="HomeForm" action="home.php" method="get" >
-
-    <input type="submit" value="Home">
-
-</form>
-
-<h1><center>Upload</center></h1>
-
-<form enctype="multipart/form-data" id='upload' action="<?php echo $php_self?>" method='post'
-      accept-charset='UTF-8'>
-
-    <p><?php echo $message ?></p>
-
-    <input type='hidden' name='MAX_FILE_SIZE' value='99999999' />
-    <input type="file" name="userfiles[]" id="userfile" multiple="" directory="" webkitdirectory="" mozdirectory="" />
-
-    <table>
-        <tr valign=top align=left>
-            <td>
-                <b><i>Subject*: </i></b></td>
-            <td>
-                <input type='text' name='subject' id='subject' maxlength="128" /><br>
-            </td>
-        </tr>
-        <tr valign=top align=left>
-            <td>
-                <b><i>Place*: </i></b></td>
-            <td>
-                <input type='text' name='place' id='place' maxlength="128" /><br>
-            </td>
-        </tr>
-        <tr valign=top align=left>
-            <td>
-                <b><i>Date*: </i></b></td>
-            <td>
-                <!-- CHECK TO SEE IF THIS CAN BE CHANGED TO INPUT TYPE = DATE IN CHROME maxlength="12" -->
-                <input type='date' name='date' id='date'/><br>
-            </td>
-        </tr>
-        <tr valign=top align=left>
-            <td>
-                <b><i>Description*: </i></b></td>
-            <td>
-                <input type='text' name='description' id='description' maxlength="2048" /><br>
-            </td>
-        </tr>
-        <tr valign=top align=left>
-            <td>
-                <b><i>Permission*: </i></b></td>
-            <td>
-                <select name="group_id">
-                    <?php
-                    echo $groups;
-
+<fieldset>
+    <legend>Uploading Multiple Photos</legend>
+    <form name="upload-files" method="post" action="upload-multi.php" enctype="multipart/form-data">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <?php
+        if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Successful uploading. Please upload another folder.</div>" ;
+        elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot upload photos. Please try again.</div>" ;
+        ?>
+        <div class='half' style="margin-top: 20px">
+            <strong>1. Select Upload Folder</strong><br>
+            <input directory="" webkitdirectory="" mozdirectory="" directory name="file[]" type="file" id="upload-file" this.style.backgroundColor='rgb(178,234,255)' style='width: 80%; border: 1px dotted grey'><br>
+        </div>
+        <div class='half' style='margin-top: 30px; height: 100px'>
+            <strong>2. Select Who Can See Your Photos </strong><br>
+            <div id='t2' style='...'>
+                <select name='group-name'>
+                    <?php foreach($all_group_info as $info) {
+                        if ($info[1] == "private"){
+                            echo "<option value='" . $info[0] . "' selected>" . $info[1];
+                        }else {
+                            echo "<option value='" . $info[0] . "'>" . $info[1];
+                        }
+                    }
                     ?>
                 </select>
-                <br>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+        <div class='half' style='margin-top: 30px; height: 100px'>
+            <strong>3. Input Date (Optional)</strong><br>
+            <input type="text" name="date-input" placeholder="Enter date: dd/mm/yyyy hh24:mi:ss" style='width: 80%'>
+        </div>
+        <div class = 'half' style='margin-top: 30px; height: 100px'>
+            <strong>4. Input Subject (Optional)</strong><br>
+            <input type="text" style="width: 80%" name="title" placeholder="Enter title here..." style='...'>
+        </div>
+        <div class='half' style='...'>
+            <strong>5. Input Photo Taken Place (Optional)</strong><br>
+            <textarea name="place" placeholder="Enter place here..." style='width: 80%; height: 100px'></textarea>
+        </div>
+        <div class='half' style='margin-top: 30px; line-height: 30px'>
+            <strong>6. Input Description (Optional)</strong><br>
+            <textarea name="description" placeholder="Enter description here..." style='width: 80%; height: 100px'></textarea>
+        </div>
+        <span id="lblError" style="color: red;"></span>
+        <input value="Upload" name="button" id="upload-button" type="submit" style='margin-bottom: 30px'/>
+    </form>
+</fieldset>
 
-    <input type='submit' name='submitUpload' value='Upload' />
+<script type="text/javascript">
+    function hideMessage() {
+        var successShow = $("#success-show");
+        successShow.html('<br>');
+    };
+    setTimeout(hideMessage, 5000);
+    /* check file when submit */
+    $("body").on("click", "#upload-button", function () {
+        var lblError = $("#lblError");
+        var oFile = document.getElementById('upload-file');
+        if (oFile.value == ""){
+            lblError.html("Please choose a file to upload");
+            return false;
+        }
+        var allowedFiles = [".jpg", ".jpeg", ".gif"];
+        var fileUpload = $("#upload-file");
+        //var fileSize = this.files[0].size;
+        var fileSize = $('#upload-file')[0].files[0].size;
+        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
+        if (!(regex.test(fileUpload.val().toLowerCase()) && fileSize < 10485760 )) {
+            lblError.html("Please upload files less than 10 MB with extensions: <b>" + allowedFiles.join(', ') + "</b> only.");
+            return false;
+        }
+        lblError.html('');
+        return true;
+    });
 
-</form>
-
-</body></html>
+    document.getElementById('upload-file').addEventListener('change', checkFile, false);
+    approveletter.addEventListener('change', checkFile, false);
+    function checkFile(e) {
+        var file_list = e.target.files;
+        for (var i = 0, file; file = file_list[i]; i++) {
+            var sFileName = file.name;
+            var sFileExtension = sFileName.split('.')[sFileName.split('.').length - 1].toLowerCase();
+            var iFileSize = file.size;
+            var iConvert = (file.size / 10485760).toFixed(2);
+            if (!(sFileExtension === "jpeg" ||sFileExtension === "jpg"|| sFileExtension === "gif" ) || iFileSize > 10485760) {
+                txt = "File type : " + sFileExtension + "\n\n";
+                txt += "Size: " + iConvert + " MB \n\n";
+                txt += "Please make sure your file is in jpg or jpeg or gif format and less than 10 MB.\n\n";
+                alert(txt);
+            }
+        }
+    }
+</script>
+</body>
+</html>
