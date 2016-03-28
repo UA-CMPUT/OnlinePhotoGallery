@@ -120,7 +120,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
                         <a href="groups.php" target="iframepage"><i class="fa fa-users"></i>  Groups</a>
                     </li>
                     <li>
-                        <a href="search.php" target="iframepage"><i class="fa fa-globe"></i>  Advanced Search</a>
+                        <a href="search.php" target="iframepage"><i class="fa fa-search"></i>  Advanced Search</a>
                     </li>
                     <li>
                         <a href="dataAnalysis.php" target="iframepage"><i class="fa fa-bar-chart"></i>  Data Analysis</a>
