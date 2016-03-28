@@ -52,7 +52,7 @@
             text-align: center;
         }
         fieldset {
-            border: 3px solid rgb(255, 249, 12);
+            border: 3px solid rgb(4, 13, 255);
             margin: 30px;
         }
         legend {

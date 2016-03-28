@@ -52,11 +52,11 @@ oci_close($conn);
             text-align: center;
         }
         fieldset {
-            border: 3px solid rgb(53, 43, 255);
+            border: 3px solid rgb(238, 5, 17);
             margin: 30px;
         }
         legend {
-            color: rgb(243, 13, 20);
+            color: rgb(101, 10, 243);
             font-size: 20px;
             font-weight: bold;
         }
@@ -135,8 +135,8 @@ oci_close($conn);
         //var fileSize = this.files[0].size;
         var fileSize = $('#upload-file')[0].files[0].size;
         var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
-        if (!(regex.test(fileUpload.val().toLowerCase()) && fileSize < 10485760 )) {
-            lblError.html("Please upload files less than 10 MB with extensions: <b>" + allowedFiles.join(', ') + "</b> only.");
+        if (!(regex.test(fileUpload.val().toLowerCase()) && fileSize < 104857600 )) {
+            lblError.html("Please upload files less than 100 MB with extensions: <b>" + allowedFiles.join(', ') + "</b> only.");
             return false;
         }
         lblError.html('');
@@ -151,11 +151,11 @@ oci_close($conn);
             var sFileName = file.name;
             var sFileExtension = sFileName.split('.')[sFileName.split('.').length - 1].toLowerCase();
             var iFileSize = file.size;
-            var iConvert = (file.size / 10485760).toFixed(2);
-            if (!(sFileExtension === "jpeg" ||sFileExtension === "jpg"|| sFileExtension === "gif" ) || iFileSize > 10485760) {
+            var iConvert = (file.size / 104857600).toFixed(2);
+            if (!(sFileExtension === "jpeg" ||sFileExtension === "jpg"|| sFileExtension === "gif" ) || iFileSize > 104857600) {
                 txt = "File type : " + sFileExtension + "\n\n";
                 txt += "Size: " + iConvert + " MB \n\n";
-                txt += "Please make sure your file is in jpg or jpeg or gif format and less than 10 MB.\n\n";
+                txt += "Please make sure your all photos are in jpg or jpeg or gif format and less than 100 MB total.\n\n";
                 alert(txt);
             }
         }

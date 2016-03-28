@@ -31,9 +31,6 @@
     $all_friend = array();
     $all_friend_name = array();
     if ($result_friend_list && $result_group_name && $result_user_list){
-//        while($friend = oci_fetch_array($stid_friend_list,OCI_ASSOC)){
-//            array_push($all_friend, $friend["FRIEND_ID"]);
-//        }
         while ($friend = oci_fetch_row($stid_friend_list)){
             array_push($all_friend, $friend);
             array_push($all_friend_name, $friend[0]);
@@ -64,14 +61,17 @@
         echo "<div class='allfull' style='margin-top: 20px' ><hr /></div>";
         /* show delete form */
         echo "<div class='allhalf' style='margin-top: 10px'>";
-        echo "<form name=\"delete-from-friend\" method=\"post\" action='delete-friend.php?ID=".$q."' enctype=\"multipart/form-data\">";
-        echo "<strong>Your Friends in Group: ".$group_name["GROUP_NAME"]."</strong><br>";
+        echo "<form name=\"edit-from-friend\" method=\"post\" action='edit-friend.php?ID=".$q."' enctype=\"multipart/form-data\">";
+        echo "<div class='half'><strong>Your Friends in Group: ".$group_name["GROUP_NAME"]."</strong><br>";
         echo "<select multiple class='full' name='friend-list[]' style='height: 90px'>";
         foreach($all_friend as $person) {
             echo "<option value='" . $person[0] . "'>" . $person[0]." : ".$person[1];
         }
-        echo "</select><br>";
+        echo "</select></div>";
+        echo "<div class='half'><strong>Input New Notice</strong><br>
+            <textarea class='' name=\"notice2\" placeholder=\"Enter new notice here...\" style='width: 70%; height: 60%'></textarea></div><br>";
         echo "<button type=\"submit\" class=\"btn\" name=\"delete-friend-button\" style='margin-top: 10px'>Delete from friends</button><br>";
+        echo "<button type=\"submit\" class=\"btn\" name=\"edit-friend-button\" style='margin-top: 10px'>Update Notice</button><br>";
         echo "</form>";
         echo "</div><div class='allfull'>";
         echo "<form name=\"delete-a-group\" method=\"post\" action='delete-group.php?ID=".$q."' enctype=\"multipart/form-data\">";

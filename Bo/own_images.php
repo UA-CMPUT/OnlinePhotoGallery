@@ -115,9 +115,9 @@ oci_close($conn);
 <body>
 <div style="width: 100%">
     <?php
-    if ($_GET['ACK']==1) echo "<div id='message' style='color:#0000FF'>Delete photo success.</div>" ;
-    elseif ($_GET['ACK']== 2) echo "<div id='message' style='color:#0000FF'>Update photo success.</div>" ;
-    elseif ($_GET['ACK']== -1) echo "<div id='message' style='color:#FF0000'>Cannot delete photo. Please try again.</div>" ;
+//    if ($_GET['ACK']==1) echo "<div id='message' style='color:#0000FF'>Delete photo success.</div>" ;
+//    elseif ($_GET['ACK']== 2) echo "<div id='message' style='color:#0000FF'>Update photo success.</div>" ;
+    if ($_GET['ACK']== -1) echo "<div id='message' style='color:#FF0000'>Cannot delete photo. Please try again.</div>" ;
     elseif ($_GET['ACK']== -2) echo "<div id='message' style='color:#FF0000'>Cannot update photo. Please try again.</div>" ;
     ?>
 </div>

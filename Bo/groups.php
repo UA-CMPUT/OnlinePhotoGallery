@@ -119,7 +119,7 @@
         }
         .out{
             width: 100%;
-            height: 500px;
+            height: 600px;
             margin: auto;
         }
         .half {
@@ -156,9 +156,11 @@
         if ($_GET['ACK']== 2) echo "<div id='success-show' style='color:#0000FF'>Add friends success.</div>" ;
         elseif ($_GET['ACK']== 3) echo "<div id='success-show' style='color:#0000FF'>Delete friends success.</div>" ;
         elseif ($_GET['ACK']== 4) echo "<div id='success-show' style='color:#0000FF'>Delete group success.</div>" ;
+        elseif ($_GET['ACK']== 5) echo "<div id='success-show' style='color:#0000FF'>Update friends notice success.</div>" ;
         elseif ($_GET['ACK']== -3) echo "<div id='success-show' style='color:#FF0000'>Cannot add friends into the group. Please try again.</div>" ;
         elseif ($_GET['ACK']== -4) echo "<div id='success-show' style='color:#FF0000'>Cannot delete friends from the group. Please try again.</div>" ;
         elseif ($_GET['ACK']== -5) echo "<div id='success-show' style='color:#FF0000'>Cannot delete group. Please try again.</div>" ;
+        elseif ($_GET['ACK']== -6) echo "<div id='success-show' style='color:#FF0000'>Cannot update friends notice. Please try again.</div>" ;
         ?>
         <strong>Select the Group You Want to Edit</strong><br>
         <div class="allfull" id='t2' style='...'>
