@@ -19,7 +19,11 @@ $sql_date_format = "alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss'"
 $stid_date_format = oci_parse( $conn, $sql_date_format );
 $result_date_format = oci_execute( $stid_date_format );
 oci_free_statement($stid_date_format);
-$sql_own = "SELECT i.*, g.group_name FROM images i, groups g WHERE i.owner_name = '".$user_name."' AND i.permitted = g.group_id";
+if ($user_name == "admin"){
+    $sql_own = "SELECT i.*, g.group_name FROM images i, groups g WHERE i.permitted = g.group_id";
+}else{
+    $sql_own = "SELECT i.*, g.group_name FROM images i, groups g WHERE i.owner_name = '".$user_name."' AND i.permitted = g.group_id";
+}
 $stid_own = oci_parse( $conn, $sql_own);
 $result_own = oci_execute($stid_own);
 $all_info = array();
@@ -42,6 +46,16 @@ oci_close($conn);
     <meta name="own_page" content="PHP,HTML,CSS,JAVASCRIPT">
     <meta name="author" content="Bo Zhou" >
     <style type="text/css">
+        #message{
+            text-align: center;
+            background-color: rgb(240, 240, 240);
+            position: fixed;
+            left: 100px;
+            right: 100px;
+            margin-top: 20%;
+            padding: 20px;
+            border: 2px groove black;
+        }
         a {
             color: rgb(200, 100, 50);
             font-weight: bold;
@@ -111,6 +125,10 @@ oci_close($conn);
 <?php
 
 $num = 0;
+//echo $all_info;
+if (empty( $all_info ) ){
+    echo '<div id=\'message\'>No Photo</div>';
+}
 foreach ($all_info as $info){
     $conn = connect();
     $sql_viewed = "SELECT count(*) AS numberOfviewer FROM images_viewed WHERE photo_id ='".$info["PHOTO_ID"]."' GROUP BY photo_id";
@@ -131,15 +149,18 @@ foreach ($all_info as $info){
     $num++;
     echo "<fieldset>
     <legend>Photo: ".$num."</legend>";
-    echo "<div class='left'><img src=\"imageView.php?image_id='".$info["PHOTO_ID"]."'&original=0\"></div>";
+    echo "<div class='left'><a style='align-content: center' target='_parent' href='show_image.php?id=".$info["PHOTO_ID"]."'><img src=\"imageView.php?image_id='".$info["PHOTO_ID"]."'&original=0\"></a></div>";
     echo "<div class='left'>
         Subject:<br>
         Permitted:<br>
         Date:<br>
         Place:<br>
         Description:<br>
-        Viewed:<br>
-    </div>
+        Viewed:<br>";
+    if ($user_name == "admin"){
+        echo "Owner:<br>";
+    }
+    echo "</div>
     <div class='right' id='photo1".$info["PHOTO_ID"]."'>
         <div style='float: left'>";
     echo $info['SUBJECT'].'<br>';
@@ -148,10 +169,13 @@ foreach ($all_info as $info){
     echo $info['PLACE'].'<br>';
     echo $info['DESCRIPTION'].'<br>';
     echo $count.'<br>';
+    if($user_name == "admin"){
+        echo $info['OWNER_NAME'].'<br>';
+    }
     echo "</div>";
     echo "<div class='control'><a class='edit' href='delete-image.php?id=".$info["PHOTO_ID"]."'>DELETE</a></div>";
     echo "<div class='control'><a class='edit' href='edit_image.php?id=".$info["PHOTO_ID"]."'>EDIT</a></div>";
-    echo "<div class='control'><a class='edit' href='show_image.php?id=".$info["PHOTO_ID"]."'>SHOW</a></div>";
+//    echo "<div class='control'><a target='_parent' class='edit' href='show_image.php?id=".$info["PHOTO_ID"]."'>SHOW</a></div>";
     echo "</fieldset>";
 }
 ?>
@@ -160,7 +184,7 @@ foreach ($all_info as $info){
         var successShow = $("#success-show");
         successShow.html('<br>');
     };
-    setTimeout(hideMessage, 5000);
+    setTimeout(hideMessage, 1000);
 </script>
 </body>
 </html>

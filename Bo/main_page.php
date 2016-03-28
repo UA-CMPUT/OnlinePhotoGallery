@@ -95,7 +95,15 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
                 <ul class="nav" id="side-menu">
                     <li>
 <!--                        <a href="all_photos.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>-->
-                        <a href="own_images.php" target="iframepage"><i class="fa fa-image"></i>  All Photos</a>
+                        <a href="javascript:void(0)" ><i class="fa fa-globe"></i>  All Photos<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="all_photos.php" target="iframepage"><i class="fa fa-cloud"></i>  Explore Photos</a>
+                            </li>
+                            <li>
+                                <a href="own_images.php" target="iframepage"><i class="fa fa-photo"></i>  Manage Photos</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0)" ><i class="fa fa-upload"></i>  Upload Photos<span class="fa arrow"></span></a>
@@ -124,7 +132,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
 
     <!-- Page Content -->
     <div id="page-wrapper">
-        <iframe src="blank_test.php" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" id="iframecon" name="iframepage" onLoad="iFrameHeight();" ></iframe>
+        <iframe src="all_photos.php" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" id="iframecon" name="iframepage" onLoad="iFrameHeight();" ></iframe>
     </div>
 </div>
 
@@ -135,7 +143,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
         var subWeb = document.frames ? document.frames["iframepage"].document :
             ifm.contentDocument;
         if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight;
+            ifm.height = subWeb.body.scrollHeight+100;
         }
     }
 </script>

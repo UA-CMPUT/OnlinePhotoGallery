@@ -14,25 +14,47 @@ if ( !isset ( $_SESSION['USER_NAME'] ) ) {
 };
 $user_name = $_SESSION['USER_NAME'];
 $conn = connect();
-$sql_other = "SELECT i.photo_id FROM images i WHERE owner_name <> '".$user_name."' AND '".$user_name."' IN (SELECT gl.friend_id FROM group_lists gl WHERE gl.group_id = i.permitted)";
-$sql_own = "SELECT photo_id FROM images WHERE owner_name = '".$user_name."'";
+/* get fiends photos */
+$sql_other = "SELECT i.photo_id FROM images i WHERE owner_name <> '".$user_name."' AND '".$user_name."' IN (SELECT gl.friend_id FROM group_lists gl WHERE gl.group_id = i.permitted) ORDER BY i.timing DESC, i.owner_name ASC";
 $stid_other = oci_parse( $conn, $sql_other );
-$stid_own = oci_parse( $conn, $sql_own);
 $result_other = oci_execute( $stid_other );
-$result_own = oci_execute($stid_own);
-if (!($result_other && $result_own)){
+if (!$result_other){
     header( "location:index.php?ERR=err" );
 }
 $all_other_id = array();
-$all_own_id = array();
 while ($other = oci_fetch_array($stid_other, OCI_ASSOC)){
     array_push($all_other_id, $other["PHOTO_ID"]);
 }
-while ($other = oci_fetch_array($stid_own, OCI_ASSOC)){
-    array_push($all_own_id, $other["PHOTO_ID"]);
-}
-oci_free_statement($stid_own);
 oci_free_statement($stid_other);
+
+/* get most popular photos */
+
+$sql_popular = "SELECT photo_id, count(*) AS numberOfviewer FROM images_viewed GROUP BY photo_id ORDER BY numberOfviewer DESC";
+$stid_popular = oci_parse($conn, $sql_popular);
+$result_popular = oci_execute($stid_popular);
+$all_popular = array();
+if ($result_popular){
+    $n = 0;
+    $tmp_top = -1;
+    while ($popular = oci_fetch_array($stid_popular,OCI_ASSOC)){
+        if ($popular["NUMBEROFVIEWER"] == '') {
+            $real = 0;
+        }else{
+            $real = $popular["NUMBEROFVIEWER"];
+        }
+        if ($real != $tmp_top){
+                $tmp_top = $real;
+                $n++;
+            if ($n > 5){
+                break;
+            }
+            array_push($all_popular, $popular["PHOTO_ID"]);
+        }else{
+            array_push($all_popular, $popular["PHOTO_ID"]);
+        }
+    }
+}
+
 oci_close($conn);
 ?>
 
@@ -44,6 +66,13 @@ oci_close($conn);
     <meta name="all_photos" content="PHP,HTML,CSS,JAVASCRIPT">
     <meta name="author" content="Bo Zhou" >
     <style type="text/css">
+        a{
+            width: 20%;
+            height: 110px;
+            margin: 10px;
+            text-align: center;
+            border-image: 0;
+        }
         body{
             font-family: "Segoe UI", Arial, sans-serif;
             text-align: center;
@@ -80,10 +109,12 @@ oci_close($conn);
 <body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <fieldset>
-    <legend>My Own Photos</legend>
+    <legend>All Popular Photos</legend>
     <?php
-    foreach ($all_own_id as $id){
-        echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';
+    foreach ($all_popular as $id){
+//        echo "<div class='control'><a target='_parent' class='edit' href='show_image.php?id=".$info["PHOTO_ID"]."'>SHOW</a></div>";
+
+        echo "<a target='_parent' href='show_image.php?id=".$id."'><img src='imageView.php?image_id=".$id."&original=0'/></a>";
     }
     ?>
 </fieldset>
@@ -91,9 +122,10 @@ oci_close($conn);
     <legend>Other Users' Photos</legend>
     <?php
     foreach ($all_other_id as $id){
-        echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';
+        echo "<a target='_parent' href='show_image.php?id=".$id."'><img src='imageView.php?image_id=".$id."&original=0'/></a>";
     }
     ?>
+<!--    <a style="margin: 5px"-->
 </fieldset>
 </body>
 </html>

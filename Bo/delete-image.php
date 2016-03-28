@@ -13,12 +13,15 @@ if ( !isset ( $_SESSION['USER_NAME'] ) ) {
 };
 $conn = connect();
 $id = $_GET["id"];
-$sql = "DELETE FROM images WHERE photo_id='".$id."'";
+
 $sql2 = "DELETE FROM images_viewed WHERE photo_id='".$id."'";
-$stid = oci_parse($conn, $sql);
 $stid2 = oci_parse($conn, $sql2);
-$result = oci_execute($stid);
 $result2 = oci_execute($stid2);
+
+$sql = "DELETE FROM images WHERE photo_id='".$id."'";
+$stid = oci_parse($conn, $sql);
+$result = oci_execute($stid);
+
 if($result && $result2){
     oci_commit($conn);
     header( "location:own_images.php?ACK=1" );

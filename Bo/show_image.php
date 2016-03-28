@@ -18,11 +18,11 @@ $pass = 0;
 
 $sql_check = "SELECT g.friend_id FROM images i, group_lists g WHERE i.photo_id = '".$id."' AND i.permitted = g.group_id";
 $stid_check = oci_parse($conn, $sql_check);
-$result1_check = oci_execute($stid_check);
+$result_check = oci_execute($stid_check);
 $all_friend = array();
-array_push($all_friend, $user_name);
+//array_push($all_friend, $user_name);
 
-if ($result1_check){
+if ($result_check){
     while ($friend = oci_fetch_array($stid_check, OCI_ASSOC)) {
         array_push($all_friend, $friend["FRIEND_ID"]);
     }
@@ -38,6 +38,23 @@ if ($result1_check){
     exit();
 }
 
+$sql_check2 = "SELECT owner_name FROM images WHERE photo_id = '".$id."'";
+$stid_check2 = oci_parse($conn, $sql_check2);
+$result_check2 = oci_execute($stid_check2);
+if ($result_check2){
+    $name = oci_fetch_array($stid_check2, OCI_ASSOC);
+    if ($user_name == $name["OWNER_NAME"]){
+        $pass = 1;
+    }
+    oci_free_statement($stid_check2);
+}else{
+    echo '<div id=\'message\'>Error! Cannot connect to server!</div>';
+    oci_free_statement($stid_check2);
+    oci_rollback($conn);
+    oci_close($conn);
+    exit();
+}
+//echo $pass."<br>";
 
 if ($pass == 1) {
     $sql1 = "SELECT viewer FROM images_viewed WHERE photo_id='" . $id . "'";
@@ -91,6 +108,21 @@ if ($pass == 1) {
             padding: 20px;
             border: 2px groove black;
         }
+        .left {
+            float: left;
+            width: 100%;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 30px;
+            /*margin-left: 50%;*/
+            /*margin-right: 15px;*/
+        }
+        /*.right {*/
+            /*width: 50%;*/
+            /*text-align: left;*/
+            /*line-height: 30px;*/
+        /*}*/
         body{
             font-family: "Segoe UI", Arial, sans-serif;
             text-align: center;
@@ -103,24 +135,6 @@ if ($pass == 1) {
             color: rgb(243, 3, 116);
             font-size: 20px;
             font-weight: bold;
-        }
-        .full {
-            width: 70%;
-            margin:auto;
-            line-height: 50px;
-            /*position:relative;*/
-        }
-        .allfull{
-            width: 100%;
-            /*height: 400px;*/
-            margin: auto;
-        }
-        .half {
-            width: 50%;
-            float: left;
-            /*margin: 10px;*/
-            /*margin-top: 10px;*/
-            height: 150px;
         }
         .btn {
             background: #3498db;
@@ -147,7 +161,6 @@ if ($pass == 1) {
             background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
             text-decoration: none;
         }
-
     </style>
 </head>
 <body>
@@ -156,12 +169,44 @@ if ($pass == 1) {
     <legend>Photo</legend>
     <?php
         if ($pass == 1){
+            $sql3 = "SELECT subject, place, timing, description FROM images WHERE photo_id='".$id."'";
+            $stid3 = oci_parse($conn, $sql3);
+            $result3 = oci_execute($stid3);
+            $info = '';
+            if ($result3) {
+                $info = oci_fetch_array($stid3, OCI_ASSOC);
+                oci_commit($conn);
+            } else {
+                oci_rollback($conn);
+                echo '<div id=\'message\'>Error! Cannot get image info !</div>';
+            }
+            oci_free_statement($stid3);
+
             echo '<img src="imageView.php?image_id='.$id.'&original=1"/><br>';
+            echo "<div class='left' >";
+            echo "Subject: ".$info['SUBJECT'].'<br>';
+            echo "Place: ".$info['PLACE'].'<br>';
+            echo "DATE: ".$info['TIMING'].'<br>';
+            echo "Description: ".$info['DESCRIPTION'].'<br>';
+
+//                    Date:<br>
+//                    Place:<br>
+//                    Description:<br>
+                    echo "</div>";
+//            echo "<div class='right' id='photo' style='width: 50%; float: left'>
+//                    <div style='float: left'>";
+//            echo $info['SUBJECT'].'<br>';
+//            echo $info['TIMING'].'<br>';
+//            echo $info['PLACE'].'<br>';
+//            echo $info['DESCRIPTION'].'<br>';
+//            echo "</div><br>";
+            
         }else{
             echo "<img src='ref/dist/img/denied.jpg' ><br>";
+
         }
     ?>
-    <input class="btn" type="button" value="BACK" onclick="history.go(-1);return true;">
+    <input style="margin-top: 20px" class="btn" type="button" value="BACK" onclick="history.go(-1);return true;">
 </fieldset>
 
 <script type="text/javascript">
@@ -172,6 +217,8 @@ if ($pass == 1) {
     }
     setTimeout( "popMessage()", 1000 );
 </script>
-
+<?php
+oci_close($conn);
+?>
 </body>
 </html>

@@ -32,7 +32,7 @@ if ( !$result_own ) {
     }
 }
 
-$sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
+$sql = "SELECT g.group_id, g.group_name FROM groups g, images i WHERE g.user_name=i.owner_name AND i.photo_id='".$id."'";
 $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";
 $stid = oci_parse( $conn, $sql );
 $stid2 = oci_parse( $conn, $sql2);
