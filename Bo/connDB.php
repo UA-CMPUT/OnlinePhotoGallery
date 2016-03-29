@@ -6,7 +6,7 @@
 * 
 */
 function connect() {
-    $conn = oci_connect('bzhou2', 'ZHOUbo2016');
+    $conn = oci_connect('yueran1', 'malebi199274');
     if (!$conn) {
         $e = oci_error();
         trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
