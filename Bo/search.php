@@ -32,7 +32,7 @@
 function search($conn) {
 	include("connDB.php");
 	//echo "function called";
-	
+	session_start();
 	if(!empty($_POST) && isset($_POST['submit_search'])) {
     // The user submitted search query, get the conditions
     $keywords = $_POST['description'];
@@ -41,7 +41,9 @@ function search($conn) {
     $to = $_POST['to_date'];
     $to = str_replace('-', '/', $to);
     $searchType = $_POST['type'];
-    $user = "abc";
+    $user = $_SESSION['USER_NAME'];
+    //echo $user."<br>";
+    //$user = "Bb";
     
     //create index for image table
     $conn=connect();
@@ -74,7 +76,7 @@ function search($conn) {
                 $contains = $contains.' | %'.$key.'%';
             }
         }
-        echo $contains."<br>";
+        //echo $contains."<br>";
          // Construct the query based on keywords, and the other search criteria entered
         $sql = 'SELECT photo_id, thumbnail, ((SCORE(1) * 6) + (SCORE(2) * 3) + SCORE(3)) score FROM images WHERE CONTAINS (subject, \''.$contains.'\', 1) > 0 OR CONTAINS (place, \''.$contains.'\', 2) > 0 OR CONTAINS (description, \''.$contains.'\', 3) > 0';
         
@@ -125,11 +127,11 @@ function search($conn) {
     
     //echo $sql."<br>";
     
-     echo "Search Result for or condition: <br>";
+     echo "Search Result: <br>";
      while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         // Loop through each search result
         $id = $row['PHOTO_ID'];
-        echo $id."<br>";
+        //echo $id."<br>";
          echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';       
     }
  
@@ -138,7 +140,7 @@ function search($conn) {
     
     //and condition
     //$conn=connect();
-    if ($keywords != '') {
+    /*if ($keywords != '') {
         // If there are keywords
         $key_array = explode(' ', $keywords);
         
@@ -205,7 +207,7 @@ function search($conn) {
         $id = $row['PHOTO_ID'];
         echo $id."<br>";
          echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';       
-    }
+    }*/
  
     oci_free_statement($stid);
     oci_close($conn);
