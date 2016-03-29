@@ -3,18 +3,9 @@
 
 include("connDB.php");
 session_start();
-/*$message= "";
-$images= "";
-$php_self= $_SERVER['PHP_SELF'];
-session_start();
-*/
 
-//If session could not define the user name, we will jump to the login page
-//if(!$_SESSION['username']) {
-//	redirect('login.php');	
-//}
 
-/*if ( !isset ( $_SESSION['USER_NAME'] ) ) {
+if ( !isset ( $_SESSION['USER_NAME'] ) ) {
     header( "location:noAdmin.html?ERR=session" );
   	 exit();
 };
@@ -25,7 +16,7 @@ echo $user;
 if ($user != "admin") {
    header("location:noAdmin.html?ERR=session");
    exit();
-}*/
+}
 
 if(isset($_POST['upload_analysis'])) {
 	//admin has specify the analsis condition and submit
@@ -254,10 +245,10 @@ if(isset($_POST['upload_analysis'])) {
     
     $conn=connect();
     
-    /*if (!$conn) {
+    if (!$conn) {
     		$e = oci_error();
     		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-	 }*/
+	 }
 	 
 	 
 	 //Prepare sql using conn and returns the statement identifier
