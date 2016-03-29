@@ -2,23 +2,30 @@
 
 
 include("connDB.php");
+session_start();
 /*$message= "";
 $images= "";
 $php_self= $_SERVER['PHP_SELF'];
 session_start();
-
+*/
 
 //If session could not define the user name, we will jump to the login page
 //if(!$_SESSION['username']) {
-	//redirect('login.php');	
+//	redirect('login.php');	
 //}
 
-$user=$_SESSION['username'];
+if ( !isset ( $_SESSION['USER_NAME'] ) ) {
+    header( "location:noAdmin.html?ERR=session" );
+  	 exit();
+};
 
+$user=$_SESSION["USER_NAME"];
+echo $user;
 //Only administrater has right to do the dataAnalysis
-if ($user != 'admin') {
-    redirect('main_page.php');
-}*/
+if ($user != "admin") {
+   header("location:noAdmin.html?ERR=session");
+   exit();
+}
 
 if(isset($_POST['upload_analysis'])) {
 	//admin has specify the analsis condition and submit
@@ -51,7 +58,7 @@ if(isset($_POST['upload_analysis'])) {
 		
 			$identifier=1;
 			$query .= ' subject';
-			$columns .= 'Users';
+			$columns .= 'Subjects';
 		} else {
 			
 			$query .= ', subject';
@@ -288,10 +295,10 @@ if(isset($_POST['upload_analysis'])) {
 		<div id="data_analysis_panel">
 				<form action="dataAnalysis.php" method="post">
 					<fieldset>
-						user:	<input type="text" name="keywords" placeholder="Please enter user id"> <br /> <br />
-						key Words:	<input type="text" name="keywords" placeholder="Please enter key words"> <br /> <br />
-						From:	<input type="text" name="start" placeholder="Please enter start date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />			
-						To:	<input type="text" name="end" placeholder="Please enter end date"> Format: dd/mm/yyyy hh24:mi:ss<br /> <br />
+						user:	<input type="text" name="users" placeholder="Please enter user id"> <br /> <br />
+						key Words:	<input type="text" name="keywords" placeholder="key words for subjects"> <br /> <br />
+						From:	<input type="text" name="start" placeholder="Please enter start date"> Format: yyyy-mm-dd<br /> <br />			
+						To:	<input type="text" name="end" placeholder="Please enter end date"> Format: yyyy-mm-dd<br /> <br />
 						<button type="reset">Reset</button>
 						<input type="submit" name="upload_analysis" value="Submit">
 						
@@ -317,7 +324,7 @@ if(isset($_POST['upload_analysis'])) {
     			if (isset($_POST['upload_analysis'])) {      
         			if ($results) {
             		echo '<table border="2">';
-            		echo '<caption>Analysis Results:</caption>';
+            		echo '<h3>Analysis Results:</h3>';
             		echo $columns;
             		echo $results;
             		echo '</table>';
