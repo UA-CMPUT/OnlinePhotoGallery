@@ -183,9 +183,9 @@ foreach ($all_info as $info){
     function popMessage() {
         var box = document.getElementById( "message" );
         box.style.display = "none";
-//        self.location = 'profile.php';
+//        self.location = 'own_images.php';
     }
-    setTimeout( "popMessage()", 1000 );
+//    setTimeout( "popMessage()", 6000 );
 </script>
 </body>
 </html>

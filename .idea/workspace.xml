@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f914d920-d30b-4f17-8ac7-630d9ef67356" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/main_page.php" afterPath="$PROJECT_DIR$/Bo/main_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/blank_test.php" afterPath="$PROJECT_DIR$/Bo/blank_test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/own_images.php" afterPath="$PROJECT_DIR$/Bo/own_images.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/upload-one.php" afterPath="$PROJECT_DIR$/Bo/upload-one.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_query.sql" afterPath="$PROJECT_DIR$/test_query.sql" />
     </list>
     <ignored path="OnlinePhotoGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,6 +51,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="upload-one.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+              <folding>
+                <marker date="1459285655000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
+                <marker date="1459285655000" expanded="true" signature="2647:2851" placeholder="INSERT INTO images... " />
+                <marker date="1459285655000" expanded="true" signature="2647:2861" placeholder="INSERT INTO images... " />
+                <marker date="1459285655000" expanded="true" signature="2647:2901" placeholder="INSERT INTO images... " />
+                <marker date="1459285655000" expanded="true" signature="2647:2985" placeholder="INSERT INTO images... " />
+                <marker date="1459285655000" expanded="true" signature="2647:2987" placeholder="INSERT INTO images... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="groups.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/groups.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,36 +107,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="own_images.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="own_images.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+            <state relative-caret-position="214">
+              <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
               <folding>
-                <marker date="1459144820000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
-                <marker date="1459144820000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
-                <marker date="1459144820000" expanded="true" signature="3288:3301" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="3397:3410" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="3501:3514" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="3626:3639" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="3886:3955" placeholder="SELECT group... images_viewed" />
-                <marker date="1459144820000" expanded="true" signature="3886:3956" placeholder="SELECT group... images_viewed" />
-                <marker date="1459144820000" expanded="true" signature="3886:3996" placeholder="SELECT group... images_viewed" />
-                <marker date="1459144820000" expanded="true" signature="4471:4491" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:4492" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:4508" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:4532" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:4986" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:4992" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4471:5049" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4539:4729" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4550:4571" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4748:4874" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="4748:4958" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="5015:5049" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="5037:5048" placeholder="..." />
-                <marker date="1459144820000" expanded="true" signature="5347:5573" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
+                <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
+                <marker date="1459282151000" expanded="true" signature="3288:3301" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3397:3410" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3501:3514" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3626:3639" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3886:3955" placeholder="SELECT group... images_viewed" />
+                <marker date="1459282151000" expanded="true" signature="3886:3956" placeholder="SELECT group... images_viewed" />
+                <marker date="1459282151000" expanded="true" signature="3886:3996" placeholder="SELECT group... images_viewed" />
+                <marker date="1459282151000" expanded="true" signature="4471:4491" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:4492" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:4508" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:4532" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:4986" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:4992" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4471:5049" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4539:4729" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4550:4571" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4748:4874" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4748:4958" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="5015:5049" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="5037:5048" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="5347:5573" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blank_test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bo/blank_test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,7 +247,6 @@
       <list>
         <option value="$PROJECT_DIR$/Bo/ref/dist/css/sb-admin-2.css" />
         <option value="$PROJECT_DIR$/blank_test.php" />
-        <option value="$PROJECT_DIR$/Bo/blank_test.php" />
         <option value="$PROJECT_DIR$/Bo/add_group.php" />
         <option value="$PROJECT_DIR$/Bo/delete_image.php" />
         <option value="$PROJECT_DIR$/Bo/add-friend.php" />
@@ -231,7 +260,6 @@
         <option value="$PROJECT_DIR$/Bo/logout.php" />
         <option value="$PROJECT_DIR$/Bo/signup.php" />
         <option value="$PROJECT_DIR$/Bo/update-image.php" />
-        <option value="$PROJECT_DIR$/Bo/upload-one.php" />
         <option value="$PROJECT_DIR$/Bo/delete-image.php" />
         <option value="$PROJECT_DIR$/Bo/edit_image.php" />
         <option value="$PROJECT_DIR$/Bo/all_photos.php" />
@@ -242,8 +270,10 @@
         <option value="$PROJECT_DIR$/Bo/groups.php" />
         <option value="$PROJECT_DIR$/Bo/edit-friend.php" />
         <option value="$PROJECT_DIR$/Bo/select-show.php" />
-        <option value="$PROJECT_DIR$/Bo/own_images.php" />
         <option value="$PROJECT_DIR$/Bo/main_page.php" />
+        <option value="$PROJECT_DIR$/Bo/own_images.php" />
+        <option value="$PROJECT_DIR$/Bo/blank_test.php" />
+        <option value="$PROJECT_DIR$/Bo/upload-one.php" />
       </list>
     </option>
   </component>
@@ -381,12 +411,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1457942344208</updated>
-      <workItem from="1458452497732" duration="123178000" />
+      <workItem from="1458452497732" duration="125210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123178000" />
+    <option name="totallyTimeSpent" value="125210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -464,12 +494,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459021336000" expanded="true" signature="1226:1253" placeholder="select photo... images" />
-            <marker date="1459021336000" expanded="true" signature="2405:2609" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2619" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2659" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2743" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2745" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
+            <marker date="1459285655000" expanded="true" signature="2647:2851" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2861" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2901" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2985" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2987" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -517,8 +547,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459136391000" expanded="true" signature="1704:1943" placeholder="SELECT photo... images" />
-            <marker date="1459136391000" expanded="true" signature="2854:2892" placeholder="SELECT photo... images" />
+            <marker date="1459283994000" expanded="true" signature="1704:1943" placeholder="SELECT photo... images" />
+            <marker date="1459283994000" expanded="true" signature="2854:2892" placeholder="SELECT photo... images" />
           </folding>
         </state>
       </provider>
@@ -549,14 +579,6 @@
             <marker date="1459021153000" expanded="true" signature="2676:2766" placeholder="INSERT INTO group_lists... " />
             <marker date="1459021153000" expanded="true" signature="2676:2767" placeholder="INSERT INTO group_lists... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/blank_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,21 +724,6 @@
             <marker date="1459136328000" expanded="true" signature="933:1042" placeholder="SELECT photo... images_viewed" />
             <marker date="1459136328000" expanded="true" signature="3506:3530" placeholder="..." />
             <marker date="1459136328000" expanded="true" signature="3506:3608" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <marker date="1459021336000" expanded="true" signature="1226:1253" placeholder="select photo... images" />
-            <marker date="1459021336000" expanded="true" signature="2405:2609" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2619" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2659" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2743" placeholder="INSERT INTO images... " />
-            <marker date="1459021336000" expanded="true" signature="2405:2745" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -912,32 +919,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+        <state relative-caret-position="214">
+          <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
           <folding>
-            <marker date="1459144820000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
-            <marker date="1459144820000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
-            <marker date="1459144820000" expanded="true" signature="3288:3301" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="3397:3410" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="3501:3514" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="3626:3639" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="3886:3955" placeholder="SELECT group... images_viewed" />
-            <marker date="1459144820000" expanded="true" signature="3886:3956" placeholder="SELECT group... images_viewed" />
-            <marker date="1459144820000" expanded="true" signature="3886:3996" placeholder="SELECT group... images_viewed" />
-            <marker date="1459144820000" expanded="true" signature="4471:4491" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:4492" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:4508" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:4532" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:4986" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:4992" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4471:5049" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4539:4729" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4550:4571" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4748:4874" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="4748:4958" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="5015:5049" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="5037:5048" placeholder="..." />
-            <marker date="1459144820000" expanded="true" signature="5347:5573" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
+            <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
+            <marker date="1459282151000" expanded="true" signature="3288:3301" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3397:3410" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3501:3514" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3626:3639" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3886:3955" placeholder="SELECT group... images_viewed" />
+            <marker date="1459282151000" expanded="true" signature="3886:3956" placeholder="SELECT group... images_viewed" />
+            <marker date="1459282151000" expanded="true" signature="3886:3996" placeholder="SELECT group... images_viewed" />
+            <marker date="1459282151000" expanded="true" signature="4471:4491" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:4492" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:4508" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:4532" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:4986" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:4992" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4471:5049" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4539:4729" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4550:4571" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4748:4874" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4748:4958" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="5015:5049" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="5037:5048" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="5347:5573" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/blank_test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+          <folding>
+            <marker date="1459285655000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
+            <marker date="1459285655000" expanded="true" signature="2647:2851" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2861" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2901" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2985" placeholder="INSERT INTO images... " />
+            <marker date="1459285655000" expanded="true" signature="2647:2987" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>

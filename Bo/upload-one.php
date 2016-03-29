@@ -5,7 +5,7 @@
 * Mar 26, 2016
 *
 */
-    function img_resize($target, $newcopy, $w, $h) {
+    function img_resize($target, $newcopy, $w, $h, $ext) {
         list($w_orig, $h_orig) = getimagesize($target);
         $scale_ratio = $w_orig / $h_orig;
         if (($w / $h) > $scale_ratio) {
@@ -13,10 +13,18 @@
         } else {
             $h = $w / $scale_ratio;
         }
-        $img = imagecreatefromjpeg($target);
+        if ($ext == 'gif'){
+            $img = imagecreatefromgif($target);
+        }else{
+            $img = imagecreatefromjpeg($target);
+        }
         $tci = imagecreatetruecolor($w, $h);
         imagecopyresampled($tci, $img, 0, 0, 0, 0, $w, $h, $w_orig, $h_orig);
-        imagejpeg($tci, $newcopy, 80);
+        if ($ext == 'gif'){
+            imagegif($tci, $newcopy, 80);
+        }else {
+            imagejpeg($tci, $newcopy, 80);
+        }
     }
 
     include("connDB.php");
@@ -59,7 +67,8 @@
     $hmax = 100;
     $ext_arr = explode(".", $fileName);
     $fileExt = end($ext_arr);
-    img_resize($target_file, $resized_file, $wmax, $hmax);
+//    echo $fileExt;
+    img_resize($target_file, $resized_file, $wmax, $hmax, $fileExt);
     $thumb_img = file_get_contents($resized_file);
     $owner_name = $_SESSION['USER_NAME'];
     $permitted_id = $_POST['group-name'];
