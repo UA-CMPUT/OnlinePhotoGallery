@@ -132,7 +132,8 @@ function search($conn) {
         // Loop through each search result
         $id = $row['PHOTO_ID'];
         //echo $id."<br>";
-         echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';       
+         //echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';
+         echo "<a target='_parent' href='show_image.php?id=".$id."'><img src='imageView.php?image_id=".$id."&original=0'/></a>";       
     }
  
     //oci_free_statement($stid);
