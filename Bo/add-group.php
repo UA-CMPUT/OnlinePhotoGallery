@@ -11,6 +11,11 @@
         header( "location:index.php?ERR=session" );
         exit();
     };
+    $new_group = $_POST["group-input"];
+    if ($new_group == ''){
+        header( "location:groups.php?ACK=empty" );
+        exit();
+    }
     $conn = connect();
     /* change date format */
     $sql_date_format = "alter session set nls_date_format = 'dd/mm/yyyy hh24:mi:ss'";
@@ -18,7 +23,7 @@
     $result_date_format = oci_execute( $stid_date_format );
     oci_free_statement($stid_date_format);
     /* check group name exist */
-    $new_group = $_POST["group-input"];
+
     $user_name = $_SESSION["USER_NAME"];
     $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
     $sql2 = "SELECT group_id, group_name FROM groups WHERE user_name IS NULL";

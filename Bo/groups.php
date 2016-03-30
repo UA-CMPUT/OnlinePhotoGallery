@@ -140,6 +140,7 @@
         if ($_GET['ACK']==1) echo "<div id='success-show' style='color:#0000FF'>Add group success.</div>" ;
         elseif ($_GET['ACK']== -1) echo "<div id='success-show' style='color:#FF0000'>Cannot add new group. Please try again.</div>" ;
         elseif ($_GET['ACK']== -2) echo "<div id='success-show' style='color:#FF0000'>You already have this group. Please change a group name.</div>" ;
+        elseif ($_GET['ACK']== 'empty') echo "<div id='success-show' style='color:#FF0000'>Please input a group name.</div>" ;
         ?>
         <div class='full' style='margin-top: 30px; height: 100px'>
             <strong>Input New Group</strong><br>
