@@ -3,6 +3,7 @@
  *  Function:   to create the initial database schema for the CMPUT 391 project: An Online Image Sharing System
  *              Winter, 2016
  *  Author:     Prof. Li-Yan Yuan
+ *  Modified:   Bo Zhou Mar.26 2016
  */
 DROP TABLE images_viewed;
 DROP TABLE images;

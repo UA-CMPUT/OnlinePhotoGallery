@@ -15,8 +15,6 @@
     $user_name = $_SESSION['USER_NAME'];
     $conn = connect();
     $sql = "SELECT group_id, group_name FROM groups WHERE user_name='".$user_name."'";
-//    $sql_user_list = "SELECT user_name FROM users WHERE user_name <> 'admin'";
-//    $sql_group_list = "SELECT user"
     $stid = oci_parse( $conn, $sql );
     $result = oci_execute( $stid );
     if (!$result){
@@ -191,12 +189,9 @@
 
     /* select onchange event show */
     var xmlHttp;
-
-    function showUser(str)
-    {
+    function showUser(str) {
         xmlHttp=GetXmlHttpObject();
-        if (xmlHttp==null)
-        {
+        if (xmlHttp==null) {
             alert ("Browser does not support HTTP Request");
             return
         }
@@ -208,31 +203,24 @@
         xmlHttp.send(null);
     }
 
-    function stateChanged()
-    {
-        if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-        {
+    function stateChanged() {
+        if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete") {
             document.getElementById("txtHint").innerHTML=xmlHttp.responseText;
         }
     }
 
-    function GetXmlHttpObject()
-    {
+    function GetXmlHttpObject() {
         var xmlHttp=null;
-        try
-        {
+        try {
             // Firefox, Opera 8.0+, Safari
             xmlHttp=new XMLHttpRequest();
         }
-        catch (e)
-        {
+        catch (e) {
             //Internet Explorer
-            try
-            {
+            try {
                 xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
             }
-            catch (e)
-            {
+            catch (e) {
                 xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
         }
