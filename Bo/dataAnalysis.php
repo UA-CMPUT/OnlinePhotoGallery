@@ -3,16 +3,7 @@
 
 include("connDB.php");
 session_start();
-/*$message= "";
-$images= "";
-$php_self= $_SERVER['PHP_SELF'];
-session_start();
-*/
 
-//If session could not define the user name, we will jump to the login page
-//if(!$_SESSION['username']) {
-//	redirect('login.php');	
-//}
 
 if ( !isset ( $_SESSION['USER_NAME'] ) ) {
     header( "location:noAdmin.html?ERR=session" );
@@ -73,8 +64,8 @@ if(isset($_POST['upload_analysis'])) {
 			$columns .= 'Year';
 		}else {
 			
-			$query .= ', EXTRACT(MONTH FROM timing) month';
-			$columns .= '</b></td><td><b>Month';
+			$query .= ', EXTRACT(YEAR FROM timing) year';
+			$columns .= '</b></td><td><b>Year';
 		
 		
 		}	
@@ -111,7 +102,7 @@ if(isset($_POST['upload_analysis'])) {
 	if($identifier==0) {
 		$query .= ' COUNT(*) count FROM images';
 		
-		$columns .= 'Count';
+		$columns .= 'Total';
 		
 	}else {
 		$query .= ', COUNT(*) count FROM images';
@@ -131,9 +122,11 @@ if(isset($_POST['upload_analysis'])) {
         // Create variable $nameList to genrate all users
         $nameList = '\''. $userList[0].'\'';
         
+        
         foreach ( $userList as $owner) {
             if ( $userList[0] != $owner) {
-                $nameList = $nameList.', \''.$owner.'\'';                
+               $nameList = $nameList.', \''.$owner.'\''; 
+               	                   
             }
         }
         
@@ -141,7 +134,7 @@ if(isset($_POST['upload_analysis'])) {
         $identifier=1;	
     }
     
-    //Allow admin choose to display the number of images for each user.
+    //Allow admin choose to display the number of images for keywords.
     if ($keywords != '') {  
         $contains = '%'.$keyList[0].'%';
         
@@ -259,7 +252,7 @@ if(isset($_POST['upload_analysis'])) {
 	 
 	 
 	 //Prepare sql using conn and returns the statement identifier
-	 $stid = oci_parse($conn, $query );
+	 $stid = oci_parse($conn, $query);
 	 oci_execute($stid);
 	
 	
@@ -303,13 +296,15 @@ if(isset($_POST['upload_analysis'])) {
 						<input type="submit" name="upload_analysis" value="Submit">
 						
 						
-						
+						<p>Check the information you want to show.</p>
 						<form name="DataForm" action="<?php echo $php_self?>" method="post" >
 						<input  type = "checkbox" name = "showUsers" value = "Users">Users					
 						<input  type = "checkbox" name = "showSubjects" value = "subjects">subjects
-						<input  type = "checkbox" name = "showWeekly" value = "weekly">Weekly
-					   <input type = "checkbox" name = "showMonthly" value = "monthly">Monthly
+						
+					   
 						<input type = "checkbox" name = "showYearly" value = "yearly">Yearly
+						<input type = "checkbox" name = "showMonthly" value = "monthly">Monthly
+						<input  type = "checkbox" name = "showWeekly" value = "weekly">Weekly
 						
 					</fieldset>
 		
