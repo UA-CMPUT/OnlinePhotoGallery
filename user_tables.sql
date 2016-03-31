@@ -5,7 +5,10 @@
  *  Author:     Prof. Li-Yan Yuan
  *  Modified:   Bo Zhou Mar.26 2016
  */
+
+/* drop images_viewed table first. added by Bo Zhou */ 
 DROP TABLE images_viewed;
+/** original tables by Prof. Yuan **/
 DROP TABLE images;
 DROP TABLE group_lists;
 DROP TABLE groups;
@@ -69,8 +72,8 @@ CREATE TABLE images (
    FOREIGN KEY(owner_name) REFERENCES users,
    FOREIGN KEY(permitted) REFERENCES groups
 );
-
-/* extra table */
+/** end original tables **/
+/* extra table added by Bo Zhou */
 CREATE TABLE images_viewed (
    photo_id int,
    viewer   varchar(24),
@@ -79,7 +82,7 @@ CREATE TABLE images_viewed (
    FOREIGN KEY(photo_id) REFERENCES images
 );
 
-/* Initial admin account */
+/* Initial admin account added by Bo Zhou */
 INSERT INTO users VALUES ('admin', 'admin', sysdate );
 INSERT INTO persons VALUES ('admin', 'admin_first', 'ADMIN', 'admin address', 'admin@gmail.com', '9999999999');
 INSERT INTO group_lists VALUES (1, 'admin', sysdate, 'system added');
