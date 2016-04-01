@@ -9,7 +9,7 @@ if ( !isset ( $_SESSION['USER_NAME'] ) ) {
 };
 
 $user=$_SESSION["USER_NAME"];
-echo $user;
+//echo $user;
 //Only administrater has right to do the dataAnalysis
 
 if(isset($_POST['upload_analysis'])) {
@@ -18,6 +18,20 @@ if(isset($_POST['upload_analysis'])) {
 	$users = $_POST['users']; $userList = explode(' ', $users);
 	$startDate = $_POST['start']; $startDate = str_replace('-', '/', $startDate);
 	$endDate = $_POST['end']; $endDate = str_replace('-', '/', $endDate);
+    $start_array = explode('/',$startDate);
+    $end_array = explode('/', $endDate);
+    $start_year = $start_array[0];
+    $start_month = $start_array[1];
+    $end_year = $end_array[0];
+    if (intval($end_array[1]) < 12){
+        $end_month = strval(intval($end_array[1])+1);
+        $end_year2 = $end_year;
+    }else{
+        $end_month = 1;
+        $end_year2 = strval(intval($end_year)+1);
+    }
+//    echo $end_month."<br>";
+
 	$showYearly=$_POST['showYearly'];
 	$showMonthly=$_POST['showMonthly'];
 	$showWeekly=$_POST['showWeekly'];
@@ -25,12 +39,31 @@ if(isset($_POST['upload_analysis'])) {
 	$showSubjects= $_POST['showSubjects'];
 	
 	//===================Form the select clause which specify by the user===================
-	
-	
-	
-	
-	
-	$query ='SELECT';
+    $conn=connect();
+
+    if ($startDate != ''){
+        $sql_get_weekday1 = "select to_char(to_date('".$startDate."', 'yyyy/mm/dd'), 'd') as d FROM users where user_name = 'admin'";
+        $sql_get_weekday2 = "select to_char(to_date('".$endDate."', 'yyyy/mm/dd'), 'd') as d FROM users where user_name = 'admin'";
+        $stid_get_weekday1 = oci_parse($conn, $sql_get_weekday1);
+        $stid_get_weekday2 = oci_parse($conn, $sql_get_weekday2);
+        $result_get_weekday1 = oci_execute($stid_get_weekday1);
+        $result_get_weekday2 = oci_execute($stid_get_weekday2);
+        $gap1 = oci_fetch_array($stid_get_weekday1,OCI_ASSOC);
+        $gap2 = oci_fetch_array($stid_get_weekday2,OCI_ASSOC);
+        $delay1 = intval($gap1["D"]) - 1;
+        $delay2 = 7 - intval($gap2["D"]);
+        oci_free_statement($stid_get_weekday1);
+        oci_free_statement($stid_get_weekday2);
+    }
+//    echo "gap1 is".$delay1."<br>";
+//    echo "gap2 is".$delay2."<br>";
+//    echo $gap1['D']."<br>";
+//    echo $gap2['D']."<br>";
+
+
+
+
+    $query ='SELECT';
 	
 	$identifier=0;
 	
@@ -180,31 +213,111 @@ if(isset($_POST['upload_analysis'])) {
     
     
     //Check does admin enter a specify start date
-    if($startDate != '') {
-    	if($identifier == 0) {
-    		$query .= ' WHERE timing >= TO_DATE(\''.$startDate.'\', \'yyyy/mm/dd\')';
-    		$identifier=1;
-    		
-    	}else {
-    		$query .= ' AND timing >= TO_DATE(\''.$startDate.'\', \'yyyy/mm/dd\')';
-    	}
-    	
+    if ($showWeekly){
+        if($startDate != '') {
+            if($identifier == 0) {
+                $query .= ' WHERE timing >= TO_DATE(\''.$startDate.'\', \'yyyy/mm/dd\') - '.$delay1;
+                $identifier=1;
+
+            }else {
+                $query .= ' AND timing >= TO_DATE(\''.$startDate.'\', \'yyyy/mm/dd\') - '.$delay1;
+            }
+
+        }
+    }elseif ($showYearly){
+        if($startDate != '') {
+            if($identifier == 0) {
+                $query .= ' WHERE timing >= TO_DATE(\''.$start_year."/01/01".'\', \'yyyy/mm/dd\')';
+                $identifier=1;
+
+            }else {
+                $query .= ' AND timing >= TO_DATE(\''.$start_year."/01/01".'\', \'yyyy/mm/dd\')';
+            }
+
+        }
+    }elseif ($showMonthly){
+        if($startDate != '') {
+            if($identifier == 0) {
+                $query .= ' WHERE timing >= TO_DATE(\''.$start_year."/".$start_month."/01".'\', \'yyyy/mm/dd\')';
+                $identifier=1;
+
+            }else {
+                $query .= ' AND timing >= TO_DATE(\''.$start_year."/".$start_month."/01".'\', \'yyyy/mm/dd\') ';
+            }
+
+        }
+    }
+    else {
+
+        if ($startDate != '') {
+            if ($identifier == 0) {
+                $query .= ' WHERE timing >= TO_DATE(\'' . $startDate . '\', \'yyyy/mm/dd\')';
+                $identifier = 1;
+
+            } else {
+                $query .= ' AND timing >= TO_DATE(\'' . $startDate . '\', \'yyyy/mm/dd\')';
+            }
+
+        }
     }
     
     
     //Check does admin enter a specify end date
-    if($endDate != '') {
-    	if($identifier == 0) {
-    		
-    		$query .=  ' WHERE timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\')';
-    		$identifier=1;
-    	
-    	
-    }else {
-    		$query .= ' AND timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\') +1';
-    	
+    if ($showWeekly){
+        if($endDate != '') {
+            if($identifier == 0) {
+
+                $query .=  ' WHERE timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\') +1 +'.$delay2;
+                $identifier=1;
+
+
+            }else {
+                $query .= ' AND timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\') +1 +'.$delay2;
+
+            }
+        }
+    }elseif ($showYearly){
+        if($endDate != '') {
+            if($identifier == 0) {
+
+                $query .=  ' WHERE timing <= TO_DATE(\''.$end_year."/12/31".'\', \'yyyy/mm/dd\') + 1';
+                $identifier=1;
+
+
+            }else {
+                $query .= ' AND timing <= TO_DATE(\''.$end_year."/12/31".'\', \'yyyy/mm/dd\') +1 ';
+
+            }
+        }
+    }elseif ($showMonthly){
+        if($endDate != '') {
+            if($identifier == 0) {
+
+                $query .=  ' WHERE timing <= TO_DATE(\''.$end_year2."/".$end_month."/01".'\', \'yyyy/mm/dd\')';
+                $identifier=1;
+
+
+            }else {
+                $query .= ' AND timing <= TO_DATE(\''.$end_year2."/".$end_month."/01".'\', \'yyyy/mm/dd\') ';
+
+            }
+        }
     }
-   }
+
+    else {
+        if ($endDate != '') {
+            if ($identifier == 0) {
+
+                $query .= ' WHERE timing <= TO_DATE(\'' . $endDate . '\', \'yyyy/mm/dd\') +1';
+                $identifier = 1;
+
+
+            } else {
+                $query .= ' AND timing <= TO_DATE(\'' . $endDate . '\', \'yyyy/mm/dd\') +1';
+
+            }
+        }
+    }
     
     
     
@@ -289,12 +402,11 @@ if(isset($_POST['upload_analysis'])) {
     
     
     $query .= ' ORDER BY count DESC';
-    
+//    echo $query."<br>";
     
     
     //===============Form the Connection here========================================
-    $conn=connect();
-    
+
     if (!$conn) {
     		$e = oci_error();
     		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -320,14 +432,9 @@ if(isset($_POST['upload_analysis'])) {
     }
 
     oci_free_statement($stid);
-    oci_close($conn);      
-	 
-	 
+    oci_close($conn);
+    
 }	
-
-
-
-
 
 ?>
 <html>
@@ -363,7 +470,6 @@ if(isset($_POST['upload_analysis'])) {
 		
 </tr>
 </table>
-
 	
 <?php
     			if (isset($_POST['upload_analysis'])) {      
