@@ -195,7 +195,7 @@ if(isset($_POST['upload_analysis'])) {
     	
     	
     }else {
-    		$query .= ' AND timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\')';
+    		$query .= ' AND timing <= TO_DATE(\''.$endDate.'\', \'yyyy/mm/dd\') +1';
     	
     }
    }
