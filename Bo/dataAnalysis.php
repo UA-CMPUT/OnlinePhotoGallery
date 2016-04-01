@@ -19,7 +19,7 @@ if ($user != "admin") {
 }
 
 if(isset($_POST['upload_analysis'])) {
-	//admin has specify the analsis condition and submit
+	//Post the method which checked by admin through check boxes
 	$keywords = $_POST['keywords']; $keyList = explode(' ', $keywords);
 	$users = $_POST['users']; $userList = explode(' ', $users);
 	$startDate = $_POST['start']; $startDate = str_replace('-', '/', $startDate);
@@ -38,13 +38,21 @@ if(isset($_POST['upload_analysis'])) {
 	
 	$columns = '<tr><td><b>';
 	
+	
+	//Use if statement to check does admin select the user option
 	if($showUsers){
 		$identifier=1;
 		$query .= ' owner_name';
 		$columns .= 'Users';
 	}
 	
+	
+	//Use if statement to check does admin select the subject option
 	if($showSubjects) {
+		
+		
+		//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 		
 			$identifier=1;
@@ -57,7 +65,13 @@ if(isset($_POST['upload_analysis'])) {
 		}
 	}
 	
+	
+	
+	//Use if statement to check does admin select the Yearly option
 	if($showYearly) {
+		
+		//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 			$identifier=1;
 			$query .= ' EXTRACT(YEAR FROM timing) year';
@@ -71,7 +85,11 @@ if(isset($_POST['upload_analysis'])) {
 		}	
 	}
 	
+	//Use if statement to check does admin select the Monthly option
 	if($showMonthly) {
+		
+		//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 			$identifier=1;
 			$query .= ' EXTRACT(MONTH FROM timing) month';
@@ -85,8 +103,12 @@ if(isset($_POST['upload_analysis'])) {
 		
 	}
 	
-	
+	//Use if statement to check does admin select the weekly option
 	if($showWeekly) {
+		
+		
+		//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 			$identifier=1;
 			$query .= ' TO_CHAR(timing,\'WW\') week';
@@ -99,6 +121,8 @@ if(isset($_POST['upload_analysis'])) {
 		
 	}
 	
+	
+	//If admin select none of the option, we show the total number of images
 	if($identifier==0) {
 		$query .= ' COUNT(*) count FROM images';
 		
@@ -154,6 +178,8 @@ if(isset($_POST['upload_analysis'])) {
     }
     
     
+    
+    //Check does admin enter a specify start date
     if($startDate != '') {
     	if($identifier == 0) {
     		$query .= ' WHERE timing >= TO_DATE(\''.$startDate.'\', \'yyyy/mm/dd\')';
@@ -165,6 +191,8 @@ if(isset($_POST['upload_analysis'])) {
     	
     }
     
+    
+    //Check does admin enter a specify end date
     if($endDate != '') {
     	if($identifier == 0) {
     		
@@ -183,13 +211,20 @@ if(isset($_POST['upload_analysis'])) {
     //===============Form the group by clause which specify by the user=======================
     $identifier=0;	
     
+    
+    //Use if statement to check does admin select the user option
     if($showUsers) {
 		$identifier=1;    	
     	$query .= ' GROUP BY owner_name';
     	
     }
     
+    
+    //Use if statement to check does admin select the subject option
     if($showSubjects) {
+    	
+    	//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
     		$query .= ' GROUP BY subject';
@@ -201,7 +236,13 @@ if(isset($_POST['upload_analysis'])) {
     	}
     }
     
+    
+    
+    //Use if statement to check does admin select the yearly option
     if($showYearly) {
+    	
+    	//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
     		$query .= ' GROUP BY EXTRACT(YEAR FROM timing)';
@@ -213,8 +254,12 @@ if(isset($_POST['upload_analysis'])) {
     }
     
     
-    
+    //Use if statement to check does admin select the monthly option
     if($showMonthly) {
+    	
+    	
+    	//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
     		$query .= ' GROUP BY EXTRACT(MONTH FROM timing)';
@@ -226,8 +271,11 @@ if(isset($_POST['upload_analysis'])) {
     }
     
     
-    
+    //Use if statement to check does admin select the weekly option
     if($showWeekly) {
+    	
+    	//Check does user select other option before this one
+		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
     		$query .= ' GROUP BY TO_CHAR(timing,\'WW\')';
@@ -239,10 +287,12 @@ if(isset($_POST['upload_analysis'])) {
     }
     
     
-    // sort the image 
-    //might can delete===========================
+    
     $query .= ' ORDER BY count DESC';
     
+    
+    
+    //===============Form the Connection here========================================
     $conn=connect();
     
     if (!$conn) {
