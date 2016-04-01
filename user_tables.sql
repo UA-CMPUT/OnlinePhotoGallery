@@ -87,6 +87,9 @@ INSERT INTO users VALUES ('admin', 'admin', sysdate );
 INSERT INTO persons VALUES ('admin', 'admin_first', 'ADMIN', 'admin address', 'admin@gmail.com', '9999999999');
 INSERT INTO group_lists VALUES (1, 'admin', sysdate, 'system added');
 INSERT INTO group_lists VALUES (2, 'admin', sysdate, 'system added');
+CREATE INDEX descIndex ON images(description) INDEXTYPE IS CTXSYS.CONTEXT; 
+CREATE INDEX subjIndex ON images(subject) INDEXTYPE IS CTXSYS.CONTEXT; 
+CREATE INDEX placeIndex ON images(place) INDEXTYPE IS CTXSYS.CONTEXT;
 
 commit;
 
