@@ -29,12 +29,12 @@ oci_free_statement($stid_other);
 
 /* get most popular photos */
 
-$sql_popular = "SELECT photo_id, count(*) AS numberOfviewer FROM images_viewed GROUP BY photo_id ORDER BY numberOfviewer DESC";
+$sql_popular = "SELECT iv.photo_id, count(*) AS numberOfviewer FROM images_viewed iv WHERE iv.photo_id NOT IN (SELECT i.photo_id FROM images i WHERE i.permitted = '2') GROUP BY iv.photo_id ORDER BY numberOfviewer DESC";
 $stid_popular = oci_parse($conn, $sql_popular);
 $result_popular = oci_execute($stid_popular);
 $all_popular = array();
+$n = 0;
 if ($result_popular){
-    $n = 0;
     $tmp_top = -1;
     while ($popular = oci_fetch_array($stid_popular,OCI_ASSOC)){
         if ($popular["NUMBEROFVIEWER"] == '') {
@@ -54,7 +54,17 @@ if ($result_popular){
         }
     }
 }
-
+/* get fresh photos if all popular photos haven't been viewed */
+if ($n <= 5){
+    $sql_fresh = "SELECT i.photo_id FROM images i WHERE i.permitted <> '2' AND i.photo_id NOT IN (SELECT iv.photo_id FROM images_viewed iv) ORDER BY i.timing DESC";
+    $stid_fresh = oci_parse($conn, $sql_fresh);
+    $result_fresh = oci_execute($stid_fresh);
+    while ($fresh = oci_fetch_array($stid_fresh, OCI_ASSOC)){
+        array_push($all_popular, $fresh["PHOTO_ID"]);
+    }
+    oci_free_statement($stid_fresh);
+}
+oci_free_statement($stid_popular);
 oci_close($conn);
 ?>
 

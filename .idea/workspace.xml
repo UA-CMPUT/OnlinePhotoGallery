@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f914d920-d30b-4f17-8ac7-630d9ef67356" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/noAdmin.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user_tables.sql" afterPath="$PROJECT_DIR$/user_tables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/all_photos.php" afterPath="$PROJECT_DIR$/Bo/all_photos.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/dataAnalysis.php" afterPath="$PROJECT_DIR$/Bo/dataAnalysis.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/main_page.php" afterPath="$PROJECT_DIR$/Bo/main_page.php" />
     </list>
     <ignored path="OnlinePhotoGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +27,11 @@
     <favorites_list name="OnlinePhotoGallery" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="upload-one.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="709">
               <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
               <folding>
                 <marker date="1459302277000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
@@ -42,12 +45,82 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connDB.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
+              <folding>
+                <marker date="1459477638000" expanded="true" signature="5398:5556" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connDB.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bo/connDB.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all_photos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+              <folding>
+                <marker date="1459476983000" expanded="true" signature="349:556" placeholder="SELECT i.pho... images" />
+                <marker date="1459476983000" expanded="true" signature="443:514" placeholder="SELECT gl.fr... group_lists" />
+                <marker date="1459476983000" expanded="true" signature="933:1134" placeholder="SELECT iv.ph... images_viewed" />
+                <marker date="1459476983000" expanded="true" signature="1028:1083" placeholder="SELECT i.pho... images" />
+                <marker date="1459476983000" expanded="true" signature="1913:2057" placeholder="SELECT i.pho... images" />
+                <marker date="1459476983000" expanded="true" signature="1993:2033" placeholder="SELECT iv.ph... images_viewed" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataAnalysis.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bo/dataAnalysis.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4561">
+              <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataAnalysis2.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataAnalysis2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2601">
+              <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="own_images.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="129" column="13" selection-start-line="129" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+              <folding>
+                <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
+                <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
+                <marker date="1459282151000" expanded="true" signature="3501:3514" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3626:3639" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="3886:3996" placeholder="SELECT count... images_viewed" />
+                <marker date="1459282151000" expanded="true" signature="4471:4508" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4550:4571" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="4748:4874" placeholder="..." />
+                <marker date="1459282151000" expanded="true" signature="5015:5049" placeholder="..." />
+                <marker date="1459282151000" expanded="false" signature="5037:5048" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,13 +147,11 @@
         <option value="$PROJECT_DIR$/Bo/update-image.php" />
         <option value="$PROJECT_DIR$/Bo/delete-image.php" />
         <option value="$PROJECT_DIR$/Bo/edit_image.php" />
-        <option value="$PROJECT_DIR$/Bo/all_photos.php" />
         <option value="$PROJECT_DIR$/Bo/show_image.php" />
         <option value="$PROJECT_DIR$/Bo/upload_folder.php" />
         <option value="$PROJECT_DIR$/Bo/upload_file.php" />
         <option value="$PROJECT_DIR$/Bo/edit-friend.php" />
         <option value="$PROJECT_DIR$/Bo/select-show.php" />
-        <option value="$PROJECT_DIR$/Bo/main_page.php" />
         <option value="$PROJECT_DIR$/Bo/own_images.php" />
         <option value="$PROJECT_DIR$/Bo/blank_test.php" />
         <option value="$PROJECT_DIR$/Bo/upload-multi.php" />
@@ -89,6 +160,11 @@
         <option value="$PROJECT_DIR$/Bo/add-friend.php" />
         <option value="$PROJECT_DIR$/Bo/upload-one.php" />
         <option value="$PROJECT_DIR$/Bo/groups.php" />
+        <option value="$PROJECT_DIR$/Bo/all_photos.php" />
+        <option value="$PROJECT_DIR$/Bo/noAdmin.html" />
+        <option value="$PROJECT_DIR$/Bo/main_page.php" />
+        <option value="$PROJECT_DIR$/Bo/dataAnalysis.php" />
+        <option value="$PROJECT_DIR$/dataAnalysis2.php" />
       </list>
     </option>
   </component>
@@ -131,7 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -167,6 +242,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -229,33 +305,34 @@
       <workItem from="1458452497732" duration="126738000" />
       <workItem from="1459310481606" duration="1151000" />
       <workItem from="1459380361959" duration="181000" />
+      <workItem from="1459474234084" duration="4609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128070000" />
+    <option name="totallyTimeSpent" value="132679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15450644" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15665236" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -276,6 +353,29 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+          <folding>
+            <marker date="1459302277000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
+            <marker date="1459302277000" expanded="true" signature="2626:2830" placeholder="INSERT INTO images... " />
+            <marker date="1459302277000" expanded="true" signature="2626:2840" placeholder="INSERT INTO images... " />
+            <marker date="1459302277000" expanded="true" signature="2626:2880" placeholder="INSERT INTO images... " />
+            <marker date="1459302277000" expanded="true" signature="2626:2964" placeholder="INSERT INTO images... " />
+            <marker date="1459302277000" expanded="true" signature="2626:2966" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/connDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
@@ -427,13 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="122" column="87" selection-start-line="122" selection-start-column="87" selection-end-line="122" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/oci8.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -446,13 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -477,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/add-group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -498,9 +577,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/connDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <marker date="1459476983000" expanded="true" signature="349:556" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="443:514" placeholder="SELECT gl.fr... group_lists" />
+            <marker date="1459476983000" expanded="true" signature="933:1134" placeholder="SELECT iv.ph... images_viewed" />
+            <marker date="1459476983000" expanded="true" signature="1028:1083" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="1913:2057" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="1993:2033" placeholder="SELECT iv.ph... images_viewed" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="129" column="13" selection-start-line="129" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
+            <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
+            <marker date="1459282151000" expanded="true" signature="3501:3514" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3626:3639" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="3886:3996" placeholder="SELECT count... images_viewed" />
+            <marker date="1459282151000" expanded="true" signature="4471:4508" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4550:4571" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="4748:4874" placeholder="..." />
+            <marker date="1459282151000" expanded="true" signature="5015:5049" placeholder="..." />
+            <marker date="1459282151000" expanded="false" signature="5037:5048" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/noAdmin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="709">
           <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
           <folding>
             <marker date="1459302277000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
@@ -513,10 +642,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/connDB.php">
+    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
+          <folding>
+            <marker date="1459477638000" expanded="true" signature="5398:5556" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/dataAnalysis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4561">
+          <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataAnalysis2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
           <folding />
         </state>
       </provider>

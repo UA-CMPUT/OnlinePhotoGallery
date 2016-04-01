@@ -10,6 +10,7 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
     header( "location:index.php?ERR=session" );
     exit();
 }
+$user_name = $_SESSION['USER_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -122,9 +123,13 @@ if ( !isset( $_SESSION['USER_NAME'] ) ) {
                     <li>
                         <a href="search.php" target="iframepage"><i class="fa fa-search"></i>  Advanced Search</a>
                     </li>
-                    <li>
-                        <a href="dataAnalysis.php" target="iframepage"><i class="fa fa-bar-chart"></i>  Data Analysis</a>
-                    </li>
+                    <?php
+                    if ($user_name == 'admin'){
+                        echo "<li>
+                        <a href=\"dataAnalysis.php\" target=\"iframepage\"><i class=\"fa fa-bar-chart\"></i>  Data Analysis</a>
+                        </li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

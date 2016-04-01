@@ -4,19 +4,13 @@
 include("connDB.php");
 session_start();
 
-
 if ( !isset ( $_SESSION['USER_NAME'] ) ) {
-    header( "location:noAdmin.html?ERR=session" );
   	 exit();
 };
 
 $user=$_SESSION["USER_NAME"];
 echo $user;
 //Only administrater has right to do the dataAnalysis
-if ($user != "admin") {
-   header("location:noAdmin.html?ERR=session");
-   exit();
-}
 
 if(isset($_POST['upload_analysis'])) {
 	//admin has specify the analsis condition and submit
@@ -281,7 +275,7 @@ if(isset($_POST['upload_analysis'])) {
 
 ?>
 <html>
-	<Body>
+	<body>
 		<h1>Data Analysis</h1>
 		
 		<div id="dataAnalysis_button"> Analysis Data </div>
@@ -330,6 +324,7 @@ if(isset($_POST['upload_analysis'])) {
 ?>
 
 </table>
+	</body>
 </html>
 
 
