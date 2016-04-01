@@ -29,9 +29,9 @@
 
 
 <?php
+//this is the function to search the photo
 function search($conn) {
 	include("connDB.php");
-	//echo "function called";
 	session_start();
 	if(!empty($_POST) && isset($_POST['submit_search'])) {
     // The user submitted search query, get the conditions
@@ -42,8 +42,7 @@ function search($conn) {
     $to = str_replace('-', '/', $to);
     $searchType = $_POST['type'];
     $user = $_SESSION['USER_NAME'];
-    //echo $user."<br>";
-    //$user = "Bb";
+    
     
     //create index for image table
     $conn=connect();
@@ -60,13 +59,9 @@ function search($conn) {
     $stid = oci_parse($conn, 'CREATE INDEX placeIndex ON images(place) INDEXTYPE IS CTXSYS.CONTEXT');
     oci_execute($stid);
     
-    //oci_free_statement($stid);
-    //oci_close($conn);*/
-    
-    //search for or condition
-    //$conn=connect();
+    //if there are keywords 
     if ($keywords != '') {
-        // If there are keywords
+  
         $key_array = explode(' ', $keywords);
         
         $contains = '%'.$key_array[0].'%';
@@ -76,8 +71,8 @@ function search($conn) {
                 $contains = $contains.' | %'.$key.'%';
             }
         }
-        //echo $contains."<br>";
-         // Construct the query based on keywords, and the other search criteria entered
+
+         // Create the query based on keywords, and permission
         $sql = 'SELECT photo_id, thumbnail, ((SCORE(1) * 6) + (SCORE(2) * 3) + SCORE(3)) score FROM images WHERE (CONTAINS (subject, \''.$contains.'\', 1) > 0 OR CONTAINS (place, \''.$contains.'\', 2) > 0 OR CONTAINS (description, \''.$contains.'\', 3) > 0)';
         
         $sql = $sql . ' and (owner_name = \''.$user.'\' or \''.$user.'\' = \'admin\' or permitted = 1 or permitted in (SELECT group_id FROM group_lists WHERE friend_id = \''.$user.'\') or \''.$user.'\' in (SELECT user_name FROM groups WHERE group_id = permitted))';
@@ -100,7 +95,7 @@ function search($conn) {
         }
     }
     else {
-        // Else there are no keywords, so construct the query only based on time
+        // Else there are no keywords, so create the query only based on time
         $sql = 'SELECT photo_id, thumbnail FROM images';
         
         $sql = $sql . ' WHERE (owner_name = \''.$user.'\' or \''.$user.'\' = \'admin\' or permitted = 1 or permitted in (SELECT group_id FROM group_lists WHERE friend_id = \''.$user.'\') or \''.$user.'\' in (SELECT user_name FROM groups WHERE group_id = permitted))';
@@ -120,19 +115,17 @@ function search($conn) {
         }
     }
     
-    echo $sql."<br>";
+    //echo $sql."<br>";
    
     $stid = oci_parse($conn, $sql);
     oci_execute($stid);
     
-    //echo $sql."<br>";
     
      echo "Search Result: <br>";
      while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         // Loop through each search result
         $id = $row['PHOTO_ID'];
-        //echo $id."<br>";
-         //echo '<img src="imageView.php?image_id='.$id.'&original=0"/><br>';
+        //show each photo
          echo "<a target='_parent' href='show_image.php?id=".$id."'><img src='imageView.php?image_id=".$id."&original=0'/></a>";       
     }
  
