@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f914d920-d30b-4f17-8ac7-630d9ef67356" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bo/noAdmin.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/all_photos.php" afterPath="$PROJECT_DIR$/Bo/all_photos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/dataAnalysis.php" afterPath="$PROJECT_DIR$/Bo/dataAnalysis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bo/main_page.php" afterPath="$PROJECT_DIR$/Bo/main_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataAnalysis2.php" afterPath="$PROJECT_DIR$/dataAnalysis2.php" />
     </list>
     <ignored path="OnlinePhotoGallery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,105 +23,7 @@
     <favorites_list name="OnlinePhotoGallery" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upload-one.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
-              <folding>
-                <marker date="1459302277000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
-                <marker date="1459302277000" expanded="true" signature="2626:2830" placeholder="INSERT INTO images... " />
-                <marker date="1459302277000" expanded="true" signature="2626:2840" placeholder="INSERT INTO images... " />
-                <marker date="1459302277000" expanded="true" signature="2626:2880" placeholder="INSERT INTO images... " />
-                <marker date="1459302277000" expanded="true" signature="2626:2964" placeholder="INSERT INTO images... " />
-                <marker date="1459302277000" expanded="true" signature="2626:2966" placeholder="INSERT INTO images... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_page.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
-              <folding>
-                <marker date="1459477638000" expanded="true" signature="5398:5556" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="connDB.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/connDB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all_photos.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-              <folding>
-                <marker date="1459476983000" expanded="true" signature="349:556" placeholder="SELECT i.pho... images" />
-                <marker date="1459476983000" expanded="true" signature="443:514" placeholder="SELECT gl.fr... group_lists" />
-                <marker date="1459476983000" expanded="true" signature="933:1134" placeholder="SELECT iv.ph... images_viewed" />
-                <marker date="1459476983000" expanded="true" signature="1028:1083" placeholder="SELECT i.pho... images" />
-                <marker date="1459476983000" expanded="true" signature="1913:2057" placeholder="SELECT i.pho... images" />
-                <marker date="1459476983000" expanded="true" signature="1993:2033" placeholder="SELECT iv.ph... images_viewed" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataAnalysis.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/dataAnalysis.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4561">
-              <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataAnalysis2.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dataAnalysis2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2601">
-              <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="own_images.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="129" column="13" selection-start-line="129" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-              <folding>
-                <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
-                <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
-                <marker date="1459282151000" expanded="true" signature="3501:3514" placeholder="..." />
-                <marker date="1459282151000" expanded="true" signature="3626:3639" placeholder="..." />
-                <marker date="1459282151000" expanded="true" signature="3886:3996" placeholder="SELECT count... images_viewed" />
-                <marker date="1459282151000" expanded="true" signature="4471:4508" placeholder="..." />
-                <marker date="1459282151000" expanded="true" signature="4550:4571" placeholder="..." />
-                <marker date="1459282151000" expanded="true" signature="4748:4874" placeholder="..." />
-                <marker date="1459282151000" expanded="true" signature="5015:5049" placeholder="..." />
-                <marker date="1459282151000" expanded="false" signature="5037:5048" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -147,7 +45,6 @@
         <option value="$PROJECT_DIR$/Bo/update-image.php" />
         <option value="$PROJECT_DIR$/Bo/delete-image.php" />
         <option value="$PROJECT_DIR$/Bo/edit_image.php" />
-        <option value="$PROJECT_DIR$/Bo/show_image.php" />
         <option value="$PROJECT_DIR$/Bo/upload_folder.php" />
         <option value="$PROJECT_DIR$/Bo/upload_file.php" />
         <option value="$PROJECT_DIR$/Bo/edit-friend.php" />
@@ -164,6 +61,7 @@
         <option value="$PROJECT_DIR$/Bo/noAdmin.html" />
         <option value="$PROJECT_DIR$/Bo/main_page.php" />
         <option value="$PROJECT_DIR$/Bo/dataAnalysis.php" />
+        <option value="$PROJECT_DIR$/Bo/show_image.php" />
         <option value="$PROJECT_DIR$/dataAnalysis2.php" />
       </list>
     </option>
@@ -305,18 +203,18 @@
       <workItem from="1458452497732" duration="126738000" />
       <workItem from="1459310481606" duration="1151000" />
       <workItem from="1459380361959" duration="181000" />
-      <workItem from="1459474234084" duration="4609000" />
+      <workItem from="1459474234084" duration="18929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132679000" />
+    <option name="totallyTimeSpent" value="146999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15665236" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15665236" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -436,59 +334,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bo/dataAnalysis2.php" />
-    <entry file="file://$PROJECT_DIR$/Bo/delete-group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/logout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/imageView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="18" selection-start-line="7" selection-start-column="0" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/delete-image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/edit_image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="34" column="120" selection-start-line="34" selection-start-column="120" selection-end-line="34" selection-end-column="120" />
         </state>
       </provider>
     </entry>
@@ -503,20 +352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="138" column="60" selection-start-line="138" selection-start-column="60" selection-end-line="138" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/edit-friend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/show_image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3451">
-          <caret line="203" column="38" selection-start-line="203" selection-start-column="38" selection-end-line="203" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -535,13 +370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/add-friend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/upload-multi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
@@ -553,20 +381,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2380">
           <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/select-show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/add-group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -585,25 +399,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
+    <entry file="file://$PROJECT_DIR$/Bo/noAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="289">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
           <folding>
-            <marker date="1459476983000" expanded="true" signature="349:556" placeholder="SELECT i.pho... images" />
-            <marker date="1459476983000" expanded="true" signature="443:514" placeholder="SELECT gl.fr... group_lists" />
-            <marker date="1459476983000" expanded="true" signature="933:1134" placeholder="SELECT iv.ph... images_viewed" />
-            <marker date="1459476983000" expanded="true" signature="1028:1083" placeholder="SELECT i.pho... images" />
-            <marker date="1459476983000" expanded="true" signature="1913:2057" placeholder="SELECT i.pho... images" />
-            <marker date="1459476983000" expanded="true" signature="1993:2033" placeholder="SELECT iv.ph... images_viewed" />
+            <marker date="1459477638000" expanded="true" signature="5398:5556" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/edit-friend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="124" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="124" />
+          <folding>
+            <marker date="1459144111000" expanded="true" signature="429:517" placeholder="DELETE FROM " />
+            <marker date="1459144111000" expanded="true" signature="1080:1188" placeholder="UPDATE group... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/delete-group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding>
+            <marker date="1459021165000" expanded="true" signature="324:378" placeholder="UPDATE image... " />
+            <marker date="1459021165000" expanded="true" signature="566:615" placeholder="DELETE FROM " />
+            <marker date="1459021165000" expanded="true" signature="779:823" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/select-show.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+          <folding>
+            <marker date="1459144207000" expanded="true" signature="424:508" placeholder="SELECT user_... users" />
+            <marker date="1459144207000" expanded="true" signature="535:624" placeholder="SELECT frien... group_lists" />
+            <marker date="1459144207000" expanded="true" signature="650:705" placeholder="SELECT group... groups" />
+            <marker date="1459144207000" expanded="true" signature="1853:1866" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="2211:2222" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="2403:2580" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="2539:2562" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="2812:2828" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="2919:2935" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="3252:3264" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="3470:3646" placeholder="..." />
+            <marker date="1459144207000" expanded="false" signature="3605:3628" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="3743:3759" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="3883:3899" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="4218:4234" placeholder="..." />
+            <marker date="1459144207000" expanded="true" signature="4357:4370" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/add-friend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+          <folding>
+            <marker date="1459302191000" expanded="true" signature="738:875" placeholder="INSERT INTO group_lists... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/add-group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="85" column="112" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="112" />
+          <folding>
+            <marker date="1459301673000" expanded="true" signature="793:865" placeholder="SELECT group... groups" />
+            <marker date="1459301673000" expanded="true" signature="881:944" placeholder="SELECT group... groups" />
+            <marker date="1459301673000" expanded="true" signature="962:989" placeholder="SELECT group... groups" />
+            <marker date="1459301673000" expanded="true" signature="2488:2632" placeholder="INSERT INTO groups... " />
+            <marker date="1459301673000" expanded="true" signature="2777:2867" placeholder="INSERT INTO group_lists... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding>
+            <marker date="1459021309000" expanded="true" signature="553:580" placeholder="SELECT user_... users" />
+            <marker date="1459021309000" expanded="true" signature="1282:1307" placeholder="SELECT email... persons" />
+            <marker date="1459021309000" expanded="true" signature="2390:2468" placeholder="INSERT INTO users... " />
+            <marker date="1459021309000" expanded="true" signature="2658:2809" placeholder="INSERT INTO persons... " />
+            <marker date="1459021309000" expanded="true" signature="3009:3095" placeholder="INSERT INTO group_lists... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="87" />
+          <folding>
+            <marker date="1459021255000" expanded="true" signature="376:469" placeholder="SELECT user_... users" />
+            <marker date="1459021255000" expanded="true" signature="881:937" placeholder="SELECT * FRO... persons" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/imageView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="83" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/delete-image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="51" />
+          <folding>
+            <marker date="1459133067000" expanded="true" signature="285:335" placeholder="DELETE FROM " />
+            <marker date="1459133067000" expanded="true" signature="413:456" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/edit_image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="35" column="72" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="72" />
+          <folding>
+            <marker date="1459135318000" expanded="true" signature="576:682" placeholder="SELECT i.*, images" />
+            <marker date="1459135318000" expanded="true" signature="993:1104" placeholder="SELECT g.gro... groups" />
+            <marker date="1459135318000" expanded="true" signature="1116:1179" placeholder="SELECT group... groups" />
+            <marker date="1459135318000" expanded="true" signature="3005:3018" placeholder="..." />
+            <marker date="1459135318000" expanded="true" signature="3119:3132" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bo/own_images.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="129" column="13" selection-start-line="129" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding>
             <marker date="1459282151000" expanded="true" signature="588:667" placeholder="SELECT i.*, images" />
             <marker date="1459282151000" expanded="true" signature="693:808" placeholder="SELECT i.*, images" />
@@ -619,18 +574,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/noAdmin.html">
+    <entry file="file://$PROJECT_DIR$/Bo/show_image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="-442">
+          <caret line="40" column="71" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="71" />
+          <folding>
+            <marker date="1459136645000" expanded="true" signature="421:443" placeholder="SELECT g.fri... images" />
+            <marker date="1459136645000" expanded="true" signature="1038:1094" placeholder="SELECT owner... images" />
+            <marker date="1459136645000" expanded="true" signature="1599:1660" placeholder="SELECT viewe... images_viewed" />
+            <marker date="1459136645000" expanded="true" signature="2210:2280" placeholder="INSERT INTO images_viewed... " />
+            <marker date="1459136645000" expanded="true" signature="5358:5449" placeholder="SELECT owner... images" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bo/all_photos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="28" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1459476983000" expanded="true" signature="349:556" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="443:514" placeholder="SELECT gl.fr... group_lists" />
+            <marker date="1459476983000" expanded="true" signature="933:1134" placeholder="SELECT iv.ph... images_viewed" />
+            <marker date="1459476983000" expanded="true" signature="1028:1083" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="1913:2057" placeholder="SELECT i.pho... images" />
+            <marker date="1459476983000" expanded="true" signature="1993:2033" placeholder="SELECT iv.ph... images_viewed" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bo/upload-one.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        <state relative-caret-position="221">
+          <caret line="79" column="352" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="352" />
           <folding>
             <marker date="1459302277000" expanded="true" signature="1437:1464" placeholder="select photo... images" />
             <marker date="1459302277000" expanded="true" signature="2626:2830" placeholder="INSERT INTO images... " />
@@ -642,28 +618,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bo/main_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
-          <folding>
-            <marker date="1459477638000" expanded="true" signature="5398:5556" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bo/dataAnalysis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4561">
-          <caret line="4" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+        <state relative-caret-position="-1282">
+          <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataAnalysis2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2601">
-          <caret line="330" column="0" selection-start-line="330" selection-start-column="0" selection-end-line="330" selection-end-column="0" />
+        <state relative-caret-position="265">
+          <caret line="325" column="0" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
           <folding />
         </state>
       </provider>
