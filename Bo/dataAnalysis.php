@@ -105,11 +105,11 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 			$identifier=1;
-			$query .= ' TO_CHAR(timing,\'WW\') week';
+			$query .= ' TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
 			$columns .= 'Week';
 			
 		}else {
-			$query .= ', TO_CHAR(timing,\'WW\') week';
+			$query .= ', TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
 			$columns .= '</b></td><td><b>Week';
 		}
 		
@@ -272,10 +272,10 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY TO_CHAR(timing,\'WW\')';
+    		$query .= ' GROUP BY TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
     		$identifier=1;
     	}else {
-    		$query .= ', TO_CHAR(timing,\'WW\')';
+    		$query .= ', TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
     		
     	}
     }
