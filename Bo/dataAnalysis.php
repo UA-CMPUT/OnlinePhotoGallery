@@ -26,11 +26,17 @@ if(isset($_POST['upload_analysis'])) {
 	
 	//===================Form the select clause which specify by the user===================
 	
-	$query='SELECT';
+	
+	
+	
+	
+	$query ='SELECT';
 	
 	$identifier=0;
 	
 	$columns = '<tr><td><b>';
+	
+	
 	
 	
 	//Use if statement to check does admin select the user option
@@ -105,11 +111,11 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
 		if($identifier==0) {
 			$identifier=1;
-			$query .= ' TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
+			$query .= ' TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
 			$columns .= 'Week';
 			
 		}else {
-			$query .= ', TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
+			$query .= ', TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\') week';
 			$columns .= '</b></td><td><b>Week';
 		}
 		
@@ -272,10 +278,10 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
+    		$query .= ' GROUP BY TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
     		$identifier=1;
     	}else {
-    		$query .= ', TO_CHAR(timing,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
+    		$query .= ', TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
     		
     	}
     }
