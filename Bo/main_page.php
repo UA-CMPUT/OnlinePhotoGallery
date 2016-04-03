@@ -83,7 +83,7 @@ $user_name = $_SESSION['USER_NAME'];
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Profile</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="https://github.com/UA-CMPUT/OnlinePhotoGallery/wiki/User-Documentation"><i class="fa fa-gear fa-fw"></i> Help</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

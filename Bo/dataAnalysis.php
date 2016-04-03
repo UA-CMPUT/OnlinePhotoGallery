@@ -40,6 +40,23 @@ if(isset($_POST['upload_analysis'])) {
 	
 	//===================Form the select clause which specify by the user===================
     $conn=connect();
+    $stid = oci_parse($conn, 'drop INDEX descIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'drop INDEX subjIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'drop INDEX placeIndex');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX descIndex ON images(description) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX subjIndex ON images(subject) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid, OCI_NO_AUTO_COMMIT);
+    $stid = oci_parse($conn, 'CREATE INDEX placeIndex ON images(place) INDEXTYPE IS CTXSYS.CONTEXT');
+    oci_execute($stid);
+    oci_free_statement($stid);
+
+
+
+
 
     if ($startDate != ''){
         $sql_get_weekday1 = "select to_char(to_date('".$startDate."', 'yyyy/mm/dd'), 'd') as d FROM users where user_name = 'admin'";
@@ -63,11 +80,18 @@ if(isset($_POST['upload_analysis'])) {
 
 
 
-    $query ='SELECT';
+
 	
 	$identifier=0;
-	
-	$columns = '<tr><td><b>';
+//    if ($users || $keywords){
+//        $identifier=1;
+//    }
+    $query ='SELECT EXTRACT(YEAR FROM timing) year2, ';
+	$columns = '<tr><td><b>Year</b></td><td><b>';
+    if ($showYearly){
+        $query ='SELECT ';
+        $columns = '<tr><td><b>';
+    }
 	
 	
 	
@@ -156,8 +180,8 @@ if(isset($_POST['upload_analysis'])) {
 	
 	
 	//If admin select none of the option, we show the total number of images
-	if($identifier==0) {
-		$query .= ' COUNT(*) count FROM images';
+	if($identifier==0 && !$users && !$keywords) {
+		$query .= ' COUNT(*) count FROM images GROUP BY EXTRACT(YEAR FROM timing)';
 		
 		$columns .= 'Total';
 		
@@ -328,7 +352,7 @@ if(isset($_POST['upload_analysis'])) {
     //Use if statement to check does admin select the user option
     if($showUsers) {
 		$identifier=1;    	
-    	$query .= ' GROUP BY owner_name';
+    	$query .= ' GROUP BY  EXTRACT(YEAR FROM timing), owner_name';
     	
     }
     
@@ -340,11 +364,11 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY subject';
+    		$query .= ' GROUP BY EXTRACT(YEAR FROM timing), subject';
 			$identifier=1;
 		}else {
 			 
-    		$query .= ', subject';
+    		$query .= ', EXTRACT(YEAR FROM timing), subject';
     		
     	}
     }
@@ -358,10 +382,10 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY EXTRACT(YEAR FROM timing)';
+    		$query .= ' GROUP BY EXTRACT(YEAR FROM timing) ORDER BY EXTRACT(YEAR FROM timing)';
     		$identifier=1;
     	}else {
-    		$query .= ', EXTRACT(YEAR FROM timing)';
+    		$query .= ', EXTRACT(YEAR FROM timing) ORDER BY EXTRACT(YEAR FROM timing)';
     		
     	}
     }
@@ -375,10 +399,10 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY EXTRACT(MONTH FROM timing)';
+    		$query .= ' GROUP BY EXTRACT(YEAR FROM timing), EXTRACT(MONTH FROM timing) ORDER BY EXTRACT(YEAR FROM timing), EXTRACT(MONTH FROM timing)';
     		$identifier=1;
     	}else {
-    		$query .= ', EXTRACT(MONTH FROM timing)';
+    		$query .= ', EXTRACT(YEAR FROM timing), EXTRACT(MONTH FROM timing) ORDER BY EXTRACT(YEAR FROM timing), EXTRACT(MONTH FROM timing)';
     		
     	}
     }
@@ -391,17 +415,17 @@ if(isset($_POST['upload_analysis'])) {
 		// If we have other option, add comma before the sql statement
     	if($identifier==0) {
     		
-    		$query .= ' GROUP BY TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
+    		$query .= ' GROUP BY EXTRACT(YEAR FROM timing), TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\') ORDER BY EXTRACT(YEAR FROM timing), WEEK';
     		$identifier=1;
     	}else {
-    		$query .= ', TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\')';
+    		$query .= ', EXTRACT(YEAR FROM timing), TO_CHAR(timing+1,\'IW\',\'NLS_DATE_LANGUAGE = American\') ORDER BY EXTRACT(YEAR FROM timing), WEEK';
     		
     	}
     }
     
     
     
-    $query .= ' ORDER BY count DESC';
+//    $query .= ' ORDER BY count DESC';
 //    echo $query."<br>";
     
     
